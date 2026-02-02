@@ -117,8 +117,47 @@ document.addEventListener("pointermove", (e) => {
 document.addEventListener("pointerup", () => {
     if (!activeWindow) return;
     activeWindow.querySelector(".top-bar").style.cursor = "grab";
+    clampWindowToViewport(activeWindow);
+
     activeWindow = null;
+
 });
+
+const TOP_BAR_HEIGHT = 30;
+const MIN_VISIBLE_WIDTH_RATIO = 0.2;
+const MARGIN = 8;
+
+function clampWindowToViewport(win) {
+  const rect = win.getBoundingClientRect();
+
+  const minVisibleWidth = rect.width * MIN_VISIBLE_WIDTH_RATIO;
+
+  // vertical: strict (top bar always visible)
+  const minY = MARGIN;
+  const maxY = window.innerHeight - TOP_BAR_HEIGHT - MARGIN;
+
+  // horizontal: allow 80% off-screen
+  const minX = -(rect.width - minVisibleWidth);
+  const maxX = window.innerWidth - minVisibleWidth;
+
+  let x = rect.left;
+  let y = rect.top;
+
+  x = Math.min(Math.max(x, minX), maxX);
+  y = Math.min(Math.max(y, minY), maxY);
+
+  win.style.transition =
+    "left 0.35s cubic-bezier(.34,1.56,.64,1), top 0.35s cubic-bezier(.34,1.56,.64,1)";
+  win.style.left = x + "px";
+  win.style.top = y + "px";
+
+  setTimeout(() => {
+    win.style.transition = "";
+  }, 350);
+}
+
+
+
 
 //bring to front on click
 document.addEventListener("pointerdown", (e) => {
@@ -156,7 +195,7 @@ document.querySelectorAll(".file-div").forEach(fileDiv => {
         showPage(pageToOpen);
     });
 });
-//aroow back 
+//arrow back 
 document.addEventListener("click", (e) => {
     if (!e.target.classList.contains("arrow-back")) return;
 
