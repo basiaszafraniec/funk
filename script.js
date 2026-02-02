@@ -15,18 +15,27 @@ function createWindow(type = "Empty File") {
     win.style.height = "150px";
 
     // mostly centered + random offset
-    const centerX = window.innerWidth / 2 - 100;
-    const centerY = window.innerHeight / 2 - 75;
+    const centerX = window.innerWidth / 2 - 200;
+    const centerY = window.innerHeight / 2 - 175;
 
-    win.style.left = centerX + (Math.random() * 100 - 50) + "px";
-    win.style.top = centerY + (Math.random() * 100 - 50) + "px";
+    win.style.left = centerX + (Math.random() * 80 - 40) + "px";
+    win.style.top = centerY + (Math.random() * 80 - 40) + "px";
 
     win.style.zIndex = ++topZ;
 
     let content = `<p>${type}</p>`;
+    let containerClass = "content-container";
     if (type === "meme") {
-        let memeNr = Math.floor(Math.random() * 17) + 1;
+        let memeNr = Math.floor(Math.random() * 16) + 1;
         content = `<img src="assets/memes/${memeNr}.jpg" alt="meme" class="meme-img"/>`;
+        containerClass = "meme-container";
+        win.classList.add("meme-window");
+    }
+    if (type === "suwmania") {
+        content = `<iframe id="frame" src="https://host914956.xce.pl/basia/suwmania/B/" scrolling="no" ></iframe>`;
+        containerClass = "suwmania-container";
+        win.classList.add("suwmania-window");
+
     }
 
 
@@ -42,7 +51,7 @@ function createWindow(type = "Empty File") {
         </div>
       </div>
     </div>
-    <div class="bottom-container">${content}</div>
+    <div class="${containerClass}">${content}</div>
   `;
 
     document.body.appendChild(win);
@@ -124,7 +133,7 @@ const pages = document.querySelectorAll(".files-page");
 const historyStack = ["root"];
 
 function showPage(page) {
-    pages.forEach(p => {p.classList.remove("active");});
+    pages.forEach(p => { p.classList.remove("active"); });
     document.querySelector(`.files-page[data-page="${page}"]`).classList.add("active");
 }
 
@@ -139,10 +148,10 @@ document.querySelectorAll(".file-div").forEach(fileDiv => {
 });
 //aroow back 
 document.addEventListener("click", (e) => {
-  if (!e.target.classList.contains("arrow-back")) return;
+    if (!e.target.classList.contains("arrow-back")) return;
 
-  historyStack.pop(); // remove current
-  const previous = historyStack[historyStack.length - 1];
-  showPage(previous);
+    historyStack.pop(); // remove current
+    const previous = historyStack[historyStack.length - 1];
+    showPage(previous);
 });
 
