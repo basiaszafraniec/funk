@@ -50,6 +50,7 @@ body {
     top: 50px;
     left: 50px;
     height: 70%;
+    z-index: 1;
 
 }
 
@@ -514,4 +515,53 @@ footer {
     --x: 140;
     --y: 40;
     --r: 20;
+}
+
+/* STICKY NOTE */
+
+.sticky {
+    width: 180px;
+    min-height: 140px;
+    padding: 1.2rem;
+    background: #fff6a3;
+    position: absolute;
+    top: 70vh;
+    left: 80vw;
+    transform: rotate(-3deg);
+    box-shadow:
+        2px 2px 0 rgba(0, 0, 0, 0.3),
+        0 15px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+    z-index: 0;
+}
+
+.sticky::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg,
+            transparent 50%,
+            rgba(0, 0, 0, 0.15) 50%);
+}
+
+.sticky:hover {
+    transform: rotate(0deg) scale(1.03);
+}
+
+
+
+/* tape */
+.tape {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    width: 70px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    transform: translateX(-50%) rotate(-2deg);
+    backdrop-filter: blur(2px);
 }
