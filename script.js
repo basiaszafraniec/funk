@@ -8,7 +8,7 @@ const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
 
 //create window on clicking file
-function createWindow(content = "Empty File") {
+function createWindow(type = "Empty File") {
     const win = document.createElement("div");
     win.className = "window";
     win.style.width = "200px";
@@ -18,10 +18,17 @@ function createWindow(content = "Empty File") {
     const centerX = window.innerWidth / 2 - 100;
     const centerY = window.innerHeight / 2 - 75;
 
-    win.style.left = centerX + (Math.random() * 80 - 40) + "px";
-    win.style.top = centerY + (Math.random() * 80 - 40) + "px";
+    win.style.left = centerX + (Math.random() * 100 - 50) + "px";
+    win.style.top = centerY + (Math.random() * 100 - 50) + "px";
 
     win.style.zIndex = ++topZ;
+
+    let content = `<p>${type}</p>`;
+    if (type === "meme") {
+        let memeNr = Math.floor(Math.random() * 17) + 1;
+        content = `<img src="assets/memes/${memeNr}.jpg" alt="meme" class="meme-img"/>`;
+    }
+
 
     win.innerHTML = `
     <div class="top-bar">
@@ -43,9 +50,9 @@ function createWindow(content = "Empty File") {
 
 document.querySelectorAll(".file").forEach(file => {
     file.addEventListener("click", (e) => {
-        content = e.target.id;
+        type = e.target.id;
         if (file.dataset.open) return;
-        createWindow(content);
+        createWindow(type);
     });
 });
 
