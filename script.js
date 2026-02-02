@@ -6,6 +6,16 @@ let topZ = 10;
 
 const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
+function explode() {
+    const word = document.getElementById("word");
+    word.classList.remove("default");
+    word.classList.add("exploding");
+    setTimeout(() => {
+        word.classList.remove("exploding");
+        word.classList.add("default");
+    }, 1600);
+}
+
 
 //create window on clicking file
 function createWindow(type = "Empty File") {
@@ -47,7 +57,7 @@ function createWindow(type = "Empty File") {
       <div class="right-buttons">
         <div class="white-bar"></div>
         <div class="x-div">
-        <div class="x-icon"></div>
+        <div  class="x-icon"></div>
         </div>
       </div>
     </div>
@@ -119,7 +129,7 @@ document.addEventListener("pointerdown", (e) => {
     win.style.zIndex = ++topZ;
 });
 
-//conlor picker
+//color picker
 const colorPicker = document.getElementById("color-picker");
 const word = document.getElementById("word");
 
