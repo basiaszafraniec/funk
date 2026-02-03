@@ -253,6 +253,8 @@ playBtn.addEventListener("click", () => {
 
 audio.addEventListener("timeupdate", () => {
     progress.value = (audio.currentTime / audio.duration) * 100 || 0;
+    currentTimeContainer.textContent = calculateTime(audio.currentTime);
+
 
 });
 
@@ -271,7 +273,7 @@ heartIcon.addEventListener("click", () => {
     player.classList.add("shake");
     setTimeout(() => {
         player.classList.remove("shake");
-        heartIcon.firstChild.src = "assets/heart-icon.png"; 
+        heartIcon.firstChild.src = "assets/heart-icon.png";
     }, 500);
 
 });
