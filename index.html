@@ -152,6 +152,36 @@
         email:
         <a href="mailto:basia.szafraniec@gmail.com">basia@gmail.com</a>
     </div>
+    <div class="music-player window" id="music-player">
+        <div class="top-bar">
+            <div class="left-buttons">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="right-buttons">
+                <div class="white-bar"></div>
+                <div class="x-div disabled">
+                    <div class="x-icon"></div>
+                </div>
+            </div>
+        </div>
+        <div class="player-body">
+            <p id="music-title">crazy horse</p>
+            <input type="range" id="progress" value="0">
+            <div>
+                <span id="current-music-time" class="music-time">0:00 /</span>
+                <span id="music-duration" class="music-time">0:00</span>
+            </div>
+            <div class="music-buttons">
+                <button id="mute"><img src="assets/sound-icon.png" alt="mute icon"></button>
+                <button id="play">▶</button>
+                <button id="heart"><img src="assets/heart-icon.png" alt="heart icon"></button>
+            </div>
+        </div>
+        <audio id="audio" src="assets/music/1.wav" preload="metadata"></audio>
+    </div>
+
 
     <footer></footer>
     <script src="script.js"></script>

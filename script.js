@@ -128,32 +128,32 @@ const MIN_VISIBLE_WIDTH_RATIO = 0.2;
 const MARGIN = 8;
 
 function clampWindowToViewport(win) {
-  const rect = win.getBoundingClientRect();
+    const rect = win.getBoundingClientRect();
 
-  const minVisibleWidth = rect.width * MIN_VISIBLE_WIDTH_RATIO;
+    const minVisibleWidth = rect.width * MIN_VISIBLE_WIDTH_RATIO;
 
-  // vertical: strict (top bar always visible)
-  const minY = MARGIN;
-  const maxY = window.innerHeight - TOP_BAR_HEIGHT - MARGIN;
+    // vertical: strict (top bar always visible)
+    const minY = MARGIN;
+    const maxY = window.innerHeight - TOP_BAR_HEIGHT - MARGIN;
 
-  // horizontal: allow 80% off-screen
-  const minX = -(rect.width - minVisibleWidth);
-  const maxX = window.innerWidth - minVisibleWidth;
+    // horizontal: allow 80% off-screen
+    const minX = -(rect.width - minVisibleWidth);
+    const maxX = window.innerWidth - minVisibleWidth;
 
-  let x = rect.left;
-  let y = rect.top;
+    let x = rect.left;
+    let y = rect.top;
 
-  x = Math.min(Math.max(x, minX), maxX);
-  y = Math.min(Math.max(y, minY), maxY);
+    x = Math.min(Math.max(x, minX), maxX);
+    y = Math.min(Math.max(y, minY), maxY);
 
-  win.style.transition =
-    "left 0.35s cubic-bezier(.34,1.56,.64,1), top 0.35s cubic-bezier(.34,1.56,.64,1)";
-  win.style.left = x + "px";
-  win.style.top = y + "px";
+    win.style.transition =
+        "left 0.35s cubic-bezier(.34,1.56,.64,1), top 0.35s cubic-bezier(.34,1.56,.64,1)";
+    win.style.left = x + "px";
+    win.style.top = y + "px";
 
-  setTimeout(() => {
-    win.style.transition = "";
-  }, 350);
+    setTimeout(() => {
+        win.style.transition = "";
+    }, 350);
 }
 
 
@@ -204,3 +204,74 @@ document.addEventListener("click", (e) => {
     showPage(previous);
 });
 
+
+//audio player
+const player = document.getElementById("music-player");
+const audio = document.getElementById("audio");
+const playBtn = document.getElementById("play");
+const progress = document.getElementById("progress");
+const durationContainer = document.getElementById('music-duration');
+const currentTimeContainer = document.getElementById('current-music-time');
+const muteButton = document.getElementById('mute');
+const heartIcon = document.getElementById('heart');
+
+const calculateTime = (secs) => {
+    const minutes = Math.floor(secs / 60);
+    const seconds = Math.floor(secs % 60);
+    const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
+    return `${minutes}:${returnedSeconds}`;
+}
+
+const displayDuration = () => {
+    durationContainer.textContent = calculateTime(audio.duration);
+}
+
+if (audio.readyState > 0) {
+    displayDuration();
+
+} else {
+    audio.addEventListener('loadedmetadata', () => {
+        displayDuration();
+    });
+}
+
+
+
+playBtn.addEventListener("click", () => {
+    if (audio.paused) {
+        audio.play();
+        playBtn.textContent = "⏸";
+    } else {
+        audio.pause();
+        playBtn.textContent = "▶";
+    }
+});
+
+
+
+
+
+audio.addEventListener("timeupdate", () => {
+    progress.value = (audio.currentTime / audio.duration) * 100 || 0;
+
+});
+
+progress.addEventListener("input", () => {
+    audio.currentTime = (progress.value / 100) * audio.duration;
+    currentTimeContainer.textContent = calculateTime(audio.currentTime);
+});
+
+muteButton.addEventListener("click", () => {
+    muteButton.firstChild.src = audio.muted ? "assets/sound-icon.png" : "assets/sound-icon-crossed.png";
+    audio.muted = !audio.muted;
+});
+
+heartIcon.addEventListener("click", () => {
+    heartIcon.firstChild.src = "assets/heart-icon-clicked.png";
+    player.classList.add("shake");
+    setTimeout(() => {
+        player.classList.remove("shake");
+        heartIcon.firstChild.src = "assets/heart-icon.png"; 
+    }, 500);
+
+});
