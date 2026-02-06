@@ -247,10 +247,6 @@ playBtn.addEventListener("click", () => {
     }
 });
 
-
-
-
-
 audio.addEventListener("timeupdate", () => {
     progress.value = (audio.currentTime / audio.duration) * 100 || 0;
     currentTimeContainer.textContent = calculateTime(audio.currentTime);
@@ -276,4 +272,21 @@ heartIcon.addEventListener("click", () => {
         heartIcon.firstChild.src = "assets/heart-icon.png";
     }, 500);
 
+});
+
+const meowSound = new Audio("assets/meow.mp3");
+const angyMeowSound = new Audio("assets/angy-meow.mp3");
+const cat = document.getElementById("cat");
+let angyMeter = 0;
+
+cat.addEventListener("click", () => {
+    meowSound.currentTime = 0;
+    meowSound.play();
+    angyMeter++;
+    if (angyMeter >= 5) {
+        meowSound.pause();
+        angyMeowSound.currentTime = 0;
+        angyMeowSound.play();
+        angyMeter = 0;
+    }
 });

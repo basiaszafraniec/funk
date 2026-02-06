@@ -252,11 +252,17 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     border-bottom: var(--my-border);
 }
 
-.left-cat img {
+#cat {
     width: 80px;
     height: auto;
     justify-self: center;
     align-self: center;
+    cursor: pointer;
+}
+
+#cat:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s;
 }
 
 .middle-cat {
@@ -350,16 +356,17 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 .file {
     width: 80%;
     height: 70%;
-    background-image: url(assets/file3.png);
+    background-image: url(assets/folder2.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    cursor: pointer;
 }
 
 .file:hover {
     transform: scale(1.05);
     transition: transform 0.2s;
-    background-image: url(assets/file4.png);
+    background-image: url(assets/folder2.png);
 }
 
 .files-page.active {
@@ -560,37 +567,37 @@ footer {
 }
 
 .music-player.shake {
-    animation: shake 0.45s cubic-bezier(.34,1.56,.64,1);
+    animation: shake 0.45s cubic-bezier(.34, 1.56, .64, 1);
 }
 
 @keyframes shake {
-  0% {
-    transform: translateY(0) scale(1);
-  }
+    0% {
+        transform: translateY(0) scale(1);
+    }
 
-  15% {
-    transform: translateY(-6px) scale(1.05, 0.95);
-  }
+    15% {
+        transform: translateY(-6px) scale(1.05, 0.95);
+    }
 
-  30% {
-    transform: translateY(0) scale(0.95, 1.05);
-  }
+    30% {
+        transform: translateY(0) scale(0.95, 1.05);
+    }
 
-  45% {
-    transform: translateY(-4px) scale(1.04, 0.96) rotate(-2deg);
-  }
+    45% {
+        transform: translateY(-4px) scale(1.04, 0.96) rotate(-2deg);
+    }
 
-  60% {
-    transform: translateY(0) scale(0.98, 1.02) rotate(2deg);
-  }
+    60% {
+        transform: translateY(0) scale(0.98, 1.02) rotate(2deg);
+    }
 
-  80% {
-    transform: translateY(-2px) scale(1.02, 0.98);
-  }
+    80% {
+        transform: translateY(-2px) scale(1.02, 0.98);
+    }
 
-  100% {
-    transform: translateY(0) scale(1);
-  }
+    100% {
+        transform: translateY(0) scale(1);
+    }
 }
 
 
@@ -626,7 +633,8 @@ footer {
     border-radius: 5px;
     background-color: var(--my-dark-blue);
     cursor: pointer;
-    margin: 3px;;
+    margin: 3px;
+    ;
 }
 
 #progress::-webkit-slider-thumb {
@@ -653,6 +661,7 @@ footer {
     align-items: center;
     width: 60%;
 }
+
 #mute,
 #heart {
     width: 18px;
