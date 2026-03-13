@@ -9,183 +9,38 @@
 </head>
 
 <body>
+    <div class="scrolling-bar">
+        <ul>
+            <li>CRAZYHORSE</li>
+            <li>SAUSYMEATBALL</li>
+            <li>DANCINGMONKEY</li>
+            <li>PANDAFART</li>
 
-    <div class="window" id="main-window">
-        <div class="top-bar">
-            <div class="left-buttons">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="right-buttons">
-                <div class="white-bar"></div>
-                <div class="x-div disabled">
-                    <div class="x-icon"></div>
-                </div>
-            </div>
-        </div>
-        <div class="bottom-container">
-            <div class="scrolling-bar">
-                <ul>
-                    <li>CRAZYHORSE</li>
-                    <li>SAUSYMEATBALL</li>
-                    <li>DANCINGMONKEY</li>
-                    <li>PANDAFART</li>
-                    <!-- duplicate for scrolling -->
-                    <li>CRAZYHORSE</li>
-                    <li>SAUSYMEATBALL</li>
-                    <li>DANCINGMONKEY</li>
-                    <li>PANDAFART</li>
+            <li>CRAZYHORSE</li>
+            <li>SAUSYMEATBALL</li>
+            <li>DANCINGMONKEY</li>
+            <li>PANDAFART</li>
 
-                </ul>
-            </div>
-            <div class="inner-container">
-                <div class="left-inner-container">
-                    <div class="inner-top-bar">
-                        <div class="color-btn">
-                            <input type="color" id="color-picker" value="#ff5bec">
-                        </div>
-                        <div class="border-btn">
-                            <button onclick="explode()" class="button">
-                                <p>explode</p>
-                            </button>
-                        </div>
-                        <div class="stroke-btn">
-                            <p>HELLO</p>
-                        </div>
-                    </div>
-                    <div class="bottom-inner-container">
-                        <div class="left-cat">
-                            <div>about me:</div>
-                            <img src="assets/cat1.png" alt="cat icon" id="cat">
-                        </div>
-                        <div class="middle-cat">
-                            <div></div>
-                            <div id="word" class="default">
-                                <span>F</span><span>A</span><span>R</span><span>T</span>
-                            </div>
+            <li>CRAZYHORSE</li>
+            <li>SAUSYMEATBALL</li>
+            <li>DANCINGMONKEY</li>
+            <li>PANDAFART</li>
 
-                        </div>
-                        <div class="files">
-                            <div class="files-page active" data-page="root">
-                                <div></div>
-                                <div></div>
-                                <div class="file-div">
-                                    <div class="file" data-open="js"></div>
-                                    <p>js</p>
-                                </div>
-                                <div class="file-div">
-                                    <div class="file" data-open="python"></div>
-                                    <p>python</p>
-                                </div>
-                                <div class="file-div">
-                                    <div class="file" id="blender"></div>
-                                    <p>blender</p>
-                                </div>
-                                <div class="file-div">
-                                    <div class="file"></div>
-                                    <p>figma</p>
-                                </div>
-                                <div class="file-div">
-                                    <div class="file" id="meme"></div>
-                                    <p>memes</p>
-                                </div>
-                                <div class="file-div">
-                                    <div class="file"></div>
-                                    <p>art</p>
-                                </div>
-                            </div>
-                            <div class="files-page" data-page="js">
-                                <div class="arrow-back">
-                                    &#8592;
-                                </div>
-                                <div></div>
-                                <div class="file-div">
-                                    <div class="file" id="suwmania"></div>
-                                    <p>suwmania</p>
-                                </div>
-                                <div class="file-div">
-                                    <div class="file"></div>
-                                    <p>weather</p>
-                                </div>
-                            </div>
-                            <div class="files-page" data-page="python">
-                                <div class="arrow-back">
-                                    &#8592;
-                                </div>
-                                <div></div>
-                                <div class="file-div">
-                                    <div class="file"></div>
-                                    <p>cube</p>
-                                </div>
-                                <div class="file-div">
-                                    <div class="file"></div>
-                                    <p>stars-game</p>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
+        </ul>
     </div>
-    <!-- <div class="window">
-        <div class="top-bar">
-            <div class="left-buttons">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="right-buttons">
-                <div class="white-bar"></div>
-                <div class="x-div disabled">
-                    <div class="x-icon"></div>
-                </div>
-            </div>
-        </div>about me
-    </div> -->
+    <div class="desktop"></div>
     <div class="sticky">
         <span class="tape"></span>
-        email:
+        <p>email:</p>
         <a href="mailto:basia.szafraniec@gmail.com">basia@gmail.com</a>
     </div>
-    <div class="music-player window" id="music-player">
-        <div class="top-bar">
-            <div class="left-buttons">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="right-buttons">
-                <div class="white-bar"></div>
-                <div class="x-div disabled">
-                    <div class="x-icon"></div>
-                </div>
-            </div>
-        </div>
-        <div class="player-body">
-            <p class="music-title">crazy horse</p>
-            <div>
-                <span id="current-music-time" class="music-time">0:00 /</span>
-                <span id="music-duration" class="music-time">0:00</span>
-            </div>
-            <input type="range" id="progress" value="0">
-
-            <div class="music-buttons">
-                <button id="mute"><img src="assets/sound-icon.png" alt="mute icon"></button>
-                <button id="play">▶</button>
-                <button id="heart"><img src="assets/heart-icon.png" alt="heart icon"></button>
-            </div>
-        </div>
-        <audio id="audio" src="assets/music/1.wav" preload="metadata"></audio>
-    </div>
 
 
-    <footer></footer>
-    <script src="script.js"></script>
+    <img src="assets/cat1.png" alt="pixelated cat" class="footer-cat">
+
+    <footer>
+    </footer>
+    <script type="module" src="js/script.js"></script>
 </body>
 
 </html>

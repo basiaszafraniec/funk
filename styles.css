@@ -28,6 +28,66 @@ body {
 
 }
 
+.desktop {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.desktop-icon {
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.desktop-icon img {
+    width: 80px;
+}
+
+.desktop-icon p {
+    font-size: 0.8rem;
+    margin-top: 4px;
+    background-color: var(--my-white);
+    border: var(--my-border);
+    padding: 2px 5px;
+}
+
+#projects-icon {
+    position: absolute;
+    top: 160px;
+    left: 300px;
+}
+
+#audio-player-icon {
+    position: absolute;
+    top: 320px;
+    left: 700px;
+}
+
+#audio-player-icon img {
+    width: 60px;
+}
+
+#documents-icon {
+    position: absolute;
+    top: 450px;
+    left: 500px;
+}
+#documents-icon img {
+    width: 70px;
+}
+#about-me-icon {
+    position: absolute;
+    top: 100px;
+    left: 600px;
+}
+#about-me-icon img {
+    width: 70px;
+}
+
 .window {
     background-color: var(--my-white);
     width: fit-content;
@@ -46,14 +106,14 @@ body {
 }
 
 
-#main-window {
+.big-window {
     width: 70%;
-    max-width: 800px;
+    max-width: 900px;
+    max-height: 700px;
     top: 30px;
     left: 30px;
     height: 70%;
     z-index: 1;
-
 }
 
 .top-bar {
@@ -128,7 +188,7 @@ body {
     pointer-events: none;
 }
 
-
+/* color picker */
 input[type="color"] {
     -webkit-appearance: none;
     appearance: none;
@@ -189,6 +249,8 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     white-space: nowrap;
     width: 100%;
     display: flex;
+    background-color: var(--my-white);
+    position: fixed;
 }
 
 .scrolling-bar ul {
@@ -196,7 +258,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     list-style: disc;
     align-items: center;
 
-    animation: scroll 20s linear infinite;
+    animation: scroll 40s linear infinite;
 }
 
 .scrolling-bar ul li {
@@ -265,12 +327,12 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     transition: transform 0.2s;
 }
 
-.middle-cat {
+.right-cat {
     display: grid;
     grid-template-rows: 1fr 12fr;
 }
 
-.middle-cat div:first-child {
+.right-cat div:first-child {
     border-bottom: var(--my-border);
 }
 
@@ -315,7 +377,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 @keyframes explodeAnim {}
 
 .files {
-    border-left: var(--my-border);
+    border-right: var(--my-border);
     width: 100%;
     height: 100%;
 
@@ -324,7 +386,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 .files-page {
     display: grid;
     grid-template-rows: 0.1fr repeat(3, 1fr);
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     width: 100%;
     height: 100%;
 }
@@ -391,15 +453,6 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 
 
 
-footer {
-    height: 10px;
-    background-color: var(--my-white);
-    border-top: var(--my-border);
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-}
 
 .suwmania-window {
     width: 325px !important;
@@ -681,7 +734,22 @@ footer {
     object-fit: contain;
 }
 
+footer {
+    height: 10px;
+    background-color: var(--my-white);
+    border-top: var(--my-border);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
 
+.footer-cat {
+    position: fixed;
+    bottom: 5px;
+    right: 60px;
+    width: 80px;
+}
 
 
 
@@ -704,6 +772,7 @@ footer {
     .left-cat {
         grid-column: 1 / 2;
         grid-row: 1;
+        border-right: none;
     }
 
     .files {
@@ -711,9 +780,11 @@ footer {
         grid-row: 1;
     }
 
-    .middle-cat {
+    .right-cat {
         grid-column: 1 / -1;
         grid-row: 2;
+        border-top: var(--my-border);
+
     }
 
     #word {
