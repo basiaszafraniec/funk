@@ -1,0 +1,215 @@
+/* ── ABOUT ME WINDOW ─────────────────────────────────────────── */
+
+.about-window {
+    width: 560px;
+    height: fit-content;
+    min-height: 0;
+}
+
+.about-ticker {
+    height: 20px;
+    border-bottom: var(--my-border);
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    background-color: var(--my-white);
+}
+
+.about-ticker-inner {
+    display: inline-flex;
+    list-style: disc;
+    align-items: center;
+    animation: scroll 22s linear infinite;
+}
+
+.about-ticker-inner li {
+    padding: 0 2rem;
+    font-size: 0.6rem;
+}
+
+.about-body {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.about-row1 {
+    display: grid;
+    grid-template-columns: 108px 1fr 150px;
+    gap: 8px;
+}
+
+.about-row2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+}
+
+.about-section {
+    border: var(--my-border);
+    display: flex;
+    flex-direction: column;
+}
+
+.about-cell-label {
+    font-size: 0.55rem;
+    opacity: 0.45;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 5px 10px;
+    border-bottom: var(--my-border);
+    flex-shrink: 0;
+}
+
+/* avatar */
+.av-col { background: #ede0ff; }
+
+.about-av-stripe {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    border-bottom: var(--my-border);
+}
+
+.about-av-stripe div { height: 7px; }
+.about-av-stripe div:nth-child(odd)  { background: var(--my-pink); }
+.about-av-stripe div:nth-child(even) { background: #ede0ff; }
+
+.about-av-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 8px 12px;
+    gap: 6px;
+    flex: 1;
+    justify-content: center;
+}
+
+.about-av-portrait {
+    width: 74px;
+    height: 90px;
+    border: var(--my-border);
+    background: #c4a0f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    image-rendering: pixelated;
+}
+
+.about-av-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    image-rendering: pixelated;
+}
+
+.about-av-name { font-size: 0.7rem; }
+
+.about-av-tag {
+    font-size: 0.5rem;
+    background: var(--my-pink);
+    border: var(--my-border);
+    padding: 1px 6px;
+}
+
+/* bio */
+.about-bio-text {
+    font-size: 0.58rem;
+    line-height: 1.75;
+    padding: 8px 10px;
+    flex: 1;
+}
+
+.about-cursor {
+    display: inline-block;
+    width: 6px;
+    height: 10px;
+    background: var(--my-dark-blue);
+    animation: blink 1s step-end infinite;
+    vertical-align: middle;
+    margin-left: 1px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+
+/* hard skills */
+.about-skills-body {
+    flex: 1;
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.about-stat-row {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-bottom: 5px;
+}
+
+.about-stat-row:last-child { margin-bottom: 0; }
+.about-stat-label { font-size: 0.5rem; }
+
+.about-stat-track {
+    height: 10px;
+    border: var(--my-border);
+    background: var(--my-white);
+    display: flex;
+    gap: 1px;
+    padding: 1px;
+}
+
+.about-sb       { height: 100%; flex: 1; }
+.about-sb.on    { background: var(--my-dark-blue); }
+
+/* shared panel body */
+.about-panel-body { padding: 8px 10px; flex: 1; }
+
+/* interests */
+.about-int-flow  { font-size: 0.58rem; line-height: 2; }
+.about-int-word  { font-style: italic; }
+.about-int-sep   { color: var(--my-pink); padding: 0 4px; }
+
+/* soft skills */
+.about-soft-row {
+    font-size: 0.58rem;
+    padding: 4px 0;
+    border-bottom: 1px solid #e8d5ff;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.about-soft-row:last-child { border-bottom: none; }
+
+.about-soft-accent     { width: 3px; height: 9px; background: var(--my-pink); flex-shrink: 0; }
+.about-soft-accent.alt { background: var(--my-dark-blue); }
+
+/* education */
+.about-edu-body  { padding: 8px 10px; flex: 1; }
+.about-edu-school { font-size: 0.65rem; line-height: 1.5; }
+.about-edu-deg   { font-size: 0.5rem; opacity: 0.6; margin-top: 4px; }
+
+.about-edu-year {
+    display: inline-block;
+    font-size: 0.5rem;
+    background: var(--my-dark-blue);
+    color: var(--my-white);
+    padding: 2px 7px;
+    margin-top: 8px;
+}
+
+.about-edu-stripe {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    border-top: var(--my-border);
+}
+
+.about-edu-stripe div { height: 7px; }
+.about-edu-stripe div:nth-child(odd)  { background: var(--my-pink); }
+.about-edu-stripe div:nth-child(even) { background: #ede0ff; }

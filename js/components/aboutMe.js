@@ -8,10 +8,14 @@ export function openAboutMeWindow() {
     win.className = "window about-window";
     win.id = "about-me-window";
 
+    // same random positioning as other popup windows
+    win.style.left = window.innerWidth  / 2 - 280 + (Math.random() * 80 - 40) + "px";
+    win.style.top  = window.innerHeight / 2 - 220 + (Math.random() * 80 - 40) + "px";
+    win.style.zIndex = 20;
+
     const topBar = createTopBar({ closable: true });
     win.appendChild(topBar);
 
-    // ── ticker ────────────────────────────────────────────────
     const ticker = document.createElement("div");
     ticker.className = "about-ticker";
     ticker.innerHTML = `
@@ -22,18 +26,15 @@ export function openAboutMeWindow() {
             <li>bouldering</li><li>pixel art</li><li>open to work</li>
         </ul>`;
 
-    // ── body ──────────────────────────────────────────────────
     const body = document.createElement("div");
     body.className = "about-body";
 
-    // row 1
     const row1 = document.createElement("div");
     row1.className = "about-row1";
     row1.appendChild(makeAvatarBox());
     row1.appendChild(makeBioBox());
     row1.appendChild(makeSkillsBox());
 
-    // row 2
     const row2 = document.createElement("div");
     row2.className = "about-row2";
     row2.appendChild(makeInterestsBox());
@@ -48,14 +49,10 @@ export function openAboutMeWindow() {
     document.body.appendChild(win);
 }
 
-
-// ── section builders ──────────────────────────────────────────
-
 function makeAvatarBox() {
     const box = document.createElement("div");
     box.className = "about-section av-col";
 
-    // pixel stripe
     const stripe = document.createElement("div");
     stripe.className = "about-av-stripe";
     for (let i = 0; i < 8; i++) stripe.appendChild(document.createElement("div"));
@@ -65,8 +62,7 @@ function makeAvatarBox() {
 
     const portrait = document.createElement("div");
     portrait.className = "about-av-portrait";
-    // swap this img src once you have your pixel art
-    portrait.innerHTML = `<img src="assets/cat1.png" alt="pixel portrait" onerror="this.style.display='none';this.parentElement.dataset.empty='true'">`;
+    portrait.innerHTML = `<img src="assets/avatar.png" alt="pixel portrait" onerror="this.style.display='none'">`;
 
     const name = document.createElement("div");
     name.className = "about-av-name";
@@ -84,7 +80,6 @@ function makeAvatarBox() {
 function makeBioBox() {
     const box = document.createElement("div");
     box.className = "about-section";
-
     box.appendChild(makeLabel("about me"));
 
     const text = document.createElement("div");
@@ -97,12 +92,12 @@ function makeBioBox() {
 
 function makeSkillsBox() {
     const SKILLS = [
-        { name: "javascript", level: 4 },
-        { name: "html / css",  level: 5 },
-        { name: "python",      level: 3 },
-        { name: "blender",     level: 3 },
-        { name: "figma",       level: 4 },
-        { name: "adobe",       level: 3 },
+        { name: "javascript", level: 14 },
+        { name: "html / css",  level: 16 },
+        { name: "python",      level: 8 },
+        { name: "blender",     level: 10 },
+        { name: "figma",       level: 12 },
+        { name: "adobe",       level: 8 },
     ];
 
     const box = document.createElement("div");
@@ -122,7 +117,7 @@ function makeSkillsBox() {
 
         const track = document.createElement("div");
         track.className = "about-stat-track";
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 20; i++) {
             const block = document.createElement("div");
             block.className = "about-sb" + (i < level ? " on" : "");
             track.appendChild(block);
@@ -199,13 +194,10 @@ function makeEducationBox() {
 
     const body = document.createElement("div");
     body.className = "about-edu-body";
-
     body.innerHTML = `
-        <div>
-            <div class="about-edu-school">your school</div>
-            <div class="about-edu-deg">your degree</div>
-            <div class="about-edu-year">2022–2025</div>
-        </div>`;
+        <div class="about-edu-school">your school</div>
+        <div class="about-edu-deg">your degree</div>
+        <div class="about-edu-year">2022–2025</div>`;
 
     const stripe = document.createElement("div");
     stripe.className = "about-edu-stripe";
@@ -214,8 +206,6 @@ function makeEducationBox() {
     box.append(body, stripe);
     return box;
 }
-
-// ── helpers ───────────────────────────────────────────────────
 
 function makeLabel(text) {
     const el = document.createElement("div");

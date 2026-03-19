@@ -2,6 +2,7 @@ import { openProjectsWindow } from "./components/projects.js";
 import { openAudioPlayerWindow } from "./components/audioPlayer.js";
 import { openDocumentsWindow } from "./components/documents.js";
 import { openAboutMeWindow } from "./components/aboutMe.js";
+import { openDoodleWindow } from "./components/doodle.js";
 
 export function initDesktop() {
     const files = [
@@ -17,7 +18,7 @@ export function initDesktop() {
             id: "about-me",
             name: "About Me",
             type: "window",
-            icon: "./assets/prof4.png",
+            icon: "./assets/face1.png",
             component: openAboutMeWindow,
             x: 60, y: 12
 
@@ -30,13 +31,14 @@ export function initDesktop() {
             component: openAudioPlayerWindow,
             x: 72, y: 38
         },
-        // {
-        //     id: "memes",
-        //     name: "memes",
-        //     type: "window",
-        //     icon: "./assets/folder2.png",
-        //     component: openAudioPlayerWindow
-        // },
+        {
+            id: "doodle",
+            name: "Doodle",
+            icon: "./assets/paint1.png",
+            component: openDoodleWindow,
+            x: 20,
+            y: 55
+        },
         {
             id: "documents",
             name: "Documents",

@@ -1,0 +1,113 @@
+/* ── DESKTOP & ICONS ────────────────────────────────────────── */
+
+.desktop {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.desktop-icon {
+    position: absolute;
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.desktop-icon img {
+    width: 80px;
+}
+
+.desktop-icon p {
+    font-size: 0.8rem;
+    margin-top: 4px;
+    background-color: var(--my-white);
+    border: var(--my-border);
+    padding: 2px 5px;
+}
+
+/* sticky note */
+.sticky {
+    width: 180px;
+    min-height: 140px;
+    padding: 1.2rem;
+    background: #fff6a3;
+    position: absolute;
+    top: 70vh;
+    left: 80vw;
+    transform: rotate(-3deg);
+    box-shadow:
+        2px 2px 0 rgba(0,0,0,0.3),
+        0 15px 20px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+    z-index: 0;
+}
+.sticky p, .sticky a {
+    font-size: 0.8rem;
+    color: var(--my-dark-blue);
+    margin: 0.2rem 0;
+}
+
+.sticky::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, transparent 50%, rgba(0,0,0,0.15) 50%);
+}
+
+.sticky:hover {
+    transform: rotate(0deg) scale(1.03);
+}
+
+.tape {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    width: 70px;
+    height: 20px;
+    background: rgba(255,255,255,0.5);
+    border: 1px solid rgba(0,0,0,0.15);
+    transform: translateX(-50%) rotate(-2deg);
+    backdrop-filter: blur(2px);
+}
+
+/* scrolling bar */
+.scrolling-bar {
+    height: 20px;
+    border-bottom: var(--my-border);
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    display: flex;
+    background-color: var(--my-white);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+}
+
+.scrolling-bar ul {
+    display: inline-flex;
+    list-style: disc;
+    align-items: center;
+    animation: scroll 40s linear infinite;
+}
+
+.scrolling-bar ul li {
+    padding: 0 3rem;
+}
+
+
+ 
+/* ── SKY CANVAS ──────────────────────────────────────────────── */
+.sky-canvas {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}

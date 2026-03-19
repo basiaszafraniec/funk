@@ -17,7 +17,7 @@ export function openProjectWindow(id) {
     win.className = "window project-window";
     win.id = "project-" + id;
 
-    win.style.width = "480px";
+    win.style.width = "fit-content";
     win.style.zIndex = ++topZ;
     win.style.left = window.innerWidth / 2 - 240 + (Math.random() * 60 - 30) + "px";
     win.style.top  = window.innerHeight / 2 - 200 + (Math.random() * 60 - 30) + "px";

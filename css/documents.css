@@ -1,0 +1,96 @@
+/* ── DOCUMENTS WINDOW ────────────────────────────────────────── */
+
+.docs-window {
+    width: 320px;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.docs-window.window {
+    grid-template-rows: unset;
+}
+
+.docs-ticker {
+    position: relative !important;
+    flex-shrink: 0;
+}
+
+.docs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 8px 4px;
+}
+
+.docs-stripe {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    border-top: var(--my-border);
+}
+
+.docs-stripe div { height: 7px; }
+.docs-stripe div:nth-child(odd)  { background: var(--my-pink); }
+.docs-stripe div:nth-child(even) { background: #ede0ff; }
+
+/* ── DOC POPUP ───────────────────────────────────────────────── */
+
+.doc-popup {
+    width: 340px;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.doc-popup.window {
+    grid-template-rows: unset;
+}
+
+.doc-pdf-frame {
+    width: 100%;
+    height: 400px;
+    border: none;
+    border-bottom: var(--my-border);
+    display: block;
+    background: #f0e8ff;
+}
+
+.doc-popup-footer {
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.doc-popup-name {
+    font-size: 0.6rem;
+}
+
+.doc-popup-btns {
+    display: flex;
+    gap: 6px;
+}
+
+.doc-btn {
+    flex: 1;
+    font-family: 'Tiny5', monospace;
+    font-size: 0.6rem;
+    border: var(--my-border);
+    padding: 5px 0;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--my-dark-blue);
+    background: var(--my-white);
+    box-shadow: var(--my-dark-blue) 2px 2px;
+    display: block;
+}
+
+.doc-btn:hover  { background: var(--my-pink); }
+.doc-btn:active { box-shadow: none; transform: translate(2px, 2px); }
+
+.doc-btn-dk {
+    background: var(--my-dark-blue);
+    color: var(--my-white);
+}
+
+.doc-btn-dk:hover { background: var(--my-pink); color: var(--my-dark-blue); }

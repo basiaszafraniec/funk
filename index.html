@@ -5,7 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>funky</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/title-screen.css">
+    <link rel="stylesheet" href="css/desktop.css">
+    <link rel="stylesheet" href="css/window.css">
+    <link rel="stylesheet" href="css/files.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/audio-player.css">
+    <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="css/about-me.css">
+    <link rel="stylesheet" href="css/doodle.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/documents.css">
 </head>
 
 <body>
@@ -31,14 +42,16 @@
     <div class="desktop"></div>
     <div class="sticky">
         <span class="tape"></span>
-        <p>email:</p>
-        <a href="mailto:basia.szafraniec@gmail.com">basia@gmail.com</a>
+        <p>feel free to reach out :)</p>
+        <a href="mailto:basia.szafraniec@gmail.com">basia.szafraniec@gmail.com</a>
     </div>
 
 
     <img src="assets/cat1.png" alt="pixelated cat" class="footer-cat">
 
     <footer>
+
+        <div id="exit-btn" onclick="sessionStorage.removeItem('visited'); location.reload()">&#9211; exit</div>
     </footer>
     <script type="module" src="js/script.js"></script>
 </body>

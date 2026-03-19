@@ -1,0 +1,67 @@
+/* ── RESET & TOKENS ─────────────────────────────────────────── */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tiny5', monospace;
+    color: var(--my-dark-blue);
+    image-rendering: pixelated;
+}
+
+:root {
+    --my-dark-blue: #430396;
+    --my-white:     #fffcee;
+    --my-pink:      #f891e9;
+    --my-border:    var(--my-dark-blue) 1px solid;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(165, 224, 255);
+    background-image:
+        linear-gradient(to right,  var(--my-dark-blue) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--my-dark-blue) 1px, transparent 1px);
+    background-size: 40px 40px;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+}
+
+footer {
+    height: 10px;
+    background-color: var(--my-white);
+    border-top: var(--my-border);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.footer-cat {
+    position: fixed;
+    bottom: 5px;
+    right: 60px;
+    width: 80px;
+}
+
+#exit-btn {
+    position: fixed;
+    bottom: 0;
+    right: 10px;
+    height: 10px;
+    font-size: 0.45rem;
+    color: var(--my-dark-blue);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    z-index: 100;
+    opacity: 0.6;
+}
+ 
+#exit-btn:hover {
+    opacity: 1;
+    color: var(--my-pink);
+}

@@ -6,103 +6,149 @@ export function openProjectsWindow() {
 
     if (document.getElementById("projects-window")) return;
 
-    const projectsWindow = document.createElement("div");
-    projectsWindow.className = "window big-window";
-    projectsWindow.id = "projects-window";
+    const win = document.createElement("div");
+    win.className = "window proj-window";
+    win.id = "projects-window";
 
-    const topBar = createTopBar({ closable: true });
-    projectsWindow.appendChild(topBar);
+    win.style.left = "30px";
+    win.style.top  = "30px";
 
-    const bottomContainer = document.createElement("div");
-    bottomContainer.className = "bottom-container";
+    win.appendChild(createTopBar({ closable: true }));
 
-    const innerContainer = document.createElement("div");
-    innerContainer.className = "inner-container";
+    // ── ticker ────────────────────────────────────────────────
+    const ticker = document.createElement("div");
+    ticker.className = "scrolling-bar proj-ticker";
+    ticker.innerHTML = `<ul>
+        <li>projects</li><li>javascript</li><li>python</li><li>blender</li><li>figma</li>
+        <li>projects</li><li>javascript</li><li>python</li><li>blender</li><li>figma</li>
+    </ul>`;
 
-    const leftInnerContainer = document.createElement("div");
-    leftInnerContainer.className = "left-inner-container";
+    // ── 3-col body ────────────────────────────────────────────
+    const body = document.createElement("div");
+    body.className = "proj-body";
 
-    const innerTopBar = document.createElement("div");
-    innerTopBar.className = "inner-top-bar";
+    const sidebar  = makeSidebar();
+    const middle   = makeMiddle();
+    const rightCol = makeRightCol();
 
-    const bottomInnerContainer = document.createElement("div");
-    bottomInnerContainer.className = "bottom-inner-container";
+    body.append(sidebar.el, middle.el, rightCol);
+    win.append(ticker, body);
+    document.body.appendChild(win);
 
-    const leftCat = document.createElement("div");
-    leftCat.className = "left-cat";
+    // ── wire sidebar → middle ─────────────────────────────────
+    sidebar.onSelect(folderKey => {
+        middle.render(folderKey);
+    });
+}
 
-    const rightCat = document.createElement("div");
-    rightCat.className = "right-cat";
+// ── SIDEBAR ───────────────────────────────────────────────────
+function makeSidebar() {
+    const el = document.createElement("div");
+    el.className = "proj-sidebar";
 
-    const files = document.createElement("div");
-    files.className = "files";
+    const label = document.createElement("div");
+    label.className = "proj-col-label";
+    label.textContent = "folders";
 
-    // ── file system ───────────────────────────────────────────
-    const history = ["root"];
+    const list = document.createElement("div");
+    list.className = "proj-folder-list";
 
-    function render(page) {
-        files.innerHTML = "";
+    let cb = null;
+    let activeRow = null;
 
-        const pageDiv = document.createElement("div");
-        pageDiv.className = "files-page active";
-        pageDiv.dataset.page = page;
+    FILE_SYSTEM.root.forEach(folder => {
+        const row = document.createElement("div");
+        row.className = "proj-folder-row";
 
-        if (page !== "root") {
-            const back = document.createElement("div");
-            back.className = "arrow-back";
-            back.innerHTML = "&#8592;";
-            back.addEventListener("click", () => {
-                history.pop();
-                render(history[history.length - 1]);
-            });
-            pageDiv.appendChild(back);
-            pageDiv.appendChild(document.createElement("div"));
-            pageDiv.appendChild(document.createElement("div"));
-        } else {
-            pageDiv.appendChild(document.createElement("div"));
-            pageDiv.appendChild(document.createElement("div"));
-            pageDiv.appendChild(document.createElement("div"));
-        }
+        const icon = document.createElement("div");
+        icon.className = "proj-folder-icon";
 
-        FILE_SYSTEM[page].forEach(item => {
+        const name = document.createElement("span");
+        name.textContent = folder.name;
+
+        const count = document.createElement("span");
+        count.className = "proj-folder-count";
+        count.textContent = FILE_SYSTEM[folder.target].length;
+
+        row.append(icon, name, count);
+
+        row.addEventListener("click", () => {
+            if (activeRow) activeRow.classList.remove("active");
+            row.classList.add("active");
+            activeRow = row;
+            if (cb) cb(folder.target);
+        });
+
+        list.appendChild(row);
+    });
+
+    el.append(label, list);
+
+    return {
+        el,
+        onSelect(fn) { cb = fn; }
+    };
+}
+
+// ── MIDDLE ────────────────────────────────────────────────────
+function makeMiddle() {
+    const el = document.createElement("div");
+    el.className = "proj-middle";
+
+    const label = document.createElement("div");
+    label.className = "proj-col-label";
+    label.textContent = "files";
+    el.appendChild(label);
+
+    const grid = document.createElement("div");
+    grid.className = "proj-file-grid";
+    el.appendChild(grid);
+
+    // empty state
+    showEmpty();
+
+    function showEmpty() {
+        grid.innerHTML = "";
+        const empty = document.createElement("div");
+        empty.className = "proj-empty";
+        empty.textContent = "← pick a folder";
+        grid.appendChild(empty);
+    }
+
+    function render(folderKey) {
+        grid.innerHTML = "";
+        FILE_SYSTEM[folderKey].forEach(item => {
             const fileDiv = document.createElement("div");
             fileDiv.className = "file-div";
 
-            const fileIcon = document.createElement("div");
-            fileIcon.className = "file";
+            const icon = document.createElement("div");
+            icon.className = "file file--project";
 
-            const label = document.createElement("p");
-            label.textContent = item.name;
+            const name = document.createElement("p");
+            name.textContent = item.name;
 
-            fileDiv.append(fileIcon, label);
+            fileDiv.append(icon, name);
 
-            if (item.type === "folder") {
-                fileDiv.addEventListener("click", () => {
-                    history.push(item.target);
-                    render(item.target);
-                });
-            }
+            fileDiv.addEventListener("click", () => {
+                openProjectWindow(item.id);
+            });
 
-            if (item.type === "file") {
-                fileDiv.addEventListener("click", () => {
-                    openProjectWindow(item.id);
-                });
-            }
-
-            pageDiv.appendChild(fileDiv);
+            grid.appendChild(fileDiv);
         });
-
-        files.appendChild(pageDiv);
     }
 
-    render("root");
+    return { el, render };
+}
 
-    // ── assemble (identical structure to original) ────────────
-    bottomInnerContainer.append(leftCat, files, rightCat);
-    leftInnerContainer.append(innerTopBar, bottomInnerContainer);
-    innerContainer.appendChild(leftInnerContainer);
-    bottomContainer.appendChild(innerContainer);
-    projectsWindow.appendChild(bottomContainer);
+// ── RIGHT COL (empty for now) ─────────────────────────────────
+function makeRightCol() {
+    const el = document.createElement("div");
+    el.className = "proj-right";
 
-    document.body.appendChild(projectsWindow);
+    const label = document.createElement("div");
+    label.className = "proj-col-label";
+    label.textContent = "aquarium";
+
+    el.appendChild(label);
+    return el;
 }

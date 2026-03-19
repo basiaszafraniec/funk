@@ -1,0 +1,80 @@
+/* ── FILE BROWSER (shared by main window & projects) ────────── */
+
+.left-cat {
+    border-right: var(--my-border);
+    display: grid;
+    grid-template-rows: 1fr 12fr;
+}
+
+.left-cat div:first-child { border-bottom: var(--my-border); }
+
+#cat {
+    width: 80px;
+    height: auto;
+    justify-self: center;
+    align-self: center;
+    cursor: pointer;
+}
+
+#cat:hover { transform: scale(1.05); transition: transform 0.2s; }
+
+.right-cat {
+    display: grid;
+    grid-template-rows: 1fr 12fr;
+}
+
+.right-cat div:first-child { border-bottom: var(--my-border); }
+
+
+.files {
+    border-right: var(--my-border);
+    width: 100%;
+    height: 100%;
+}
+
+.files-page {
+    display: none;
+    grid-template-rows: 0.1fr repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    height: 100%;
+}
+
+.files-page.active { display: grid; }
+
+.arrow-back {
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+    user-select: none;
+}
+
+.file-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.file {
+    width: 80%;
+    height: 70%;
+    background-image: url(../assets/folder2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.file:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s;
+}
+
+.file-div p { font-size: 0.8rem; }
+
+/* specific file icons */
+#suwmania { background-image: url(assets/game1.png); }
+#meme     { background-image: url(assets/dice1.png); }
