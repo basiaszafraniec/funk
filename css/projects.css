@@ -1,9 +1,14 @@
 /* ── PROJECT POPUP WINDOW ────────────────────────────────────── */
 
 .project-window {
-    width: 480px;
-    min-height: 300px;
-    max-height: 80vh;
+    width: fit-content;
+    min-width: 320px;
+    max-width: min(90vw, 600px);
+    max-height: 90vh;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    display: grid;
+    grid-template-rows: auto 1fr;
 }
 
 .project-body {
@@ -12,7 +17,7 @@
     gap: 12px;
     padding: 16px;
     overflow-y: auto;
-    height: 100%;
+    min-width: 0;
 }
 
 .project-meta {
@@ -52,27 +57,28 @@
     line-height: 1.5;
 }
 
+/* media: sizes itself to content, capped to viewport */
 .project-media {
-    flex: 1;
-    min-height: 200px;
     border: var(--my-border);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
 }
 
+/* iframe: scale the page to fit a fixed display box */
 .project-media--iframe {
     position: relative;
-    width: 300px;
-    height: 318px;
+    width: 100%;
+    /* display box height — adjust per project if needed */
+    height: 340px;
     overflow: hidden;
     flex: none;
 }
 
 .project-media--iframe iframe {
     position: absolute;
+    /* natural page size */
     width: 650px;
     height: 780px;
     top: 50%;
@@ -83,8 +89,9 @@
 
 .project-img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    max-height: 60vh;
+    object-fit: contain;
     display: block;
 }
 
@@ -198,7 +205,7 @@
     width: 16px;
     height: 13px;
     flex-shrink: 0;
-    background-image: url(../assets/file-mini.png);
+    background-image: url(../assets/folder2.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -244,30 +251,32 @@
     flex-direction: column;
     overflow: hidden;
 }
+
+
 /* ── DOCUMENTS WINDOW ────────────────────────────────────────── */
- 
+
 .docs-window {
     width: 420px;
     min-height: 0;
     display: flex;
     flex-direction: column;
 }
- 
+
 .docs-window.window {
     grid-template-rows: unset;
 }
- 
+
 .docs-ticker {
     position: relative !important;
     flex-shrink: 0;
 }
- 
+
 .docs-body {
     display: flex;
     flex-direction: column;
     flex: 1;
 }
- 
+
 .docs-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -275,7 +284,7 @@
     padding: 10px 4px;
     align-content: start;
 }
- 
+
 .docs-file-div {
     display: flex;
     flex-direction: column;
@@ -285,34 +294,34 @@
     cursor: pointer;
     gap: 4px;
 }
- 
+
 .docs-file-div:hover .docs-file-icon {
     transform: scale(1.05);
     transition: transform 0.15s;
 }
- 
+
 .docs-file-icon {
     width: 50px;
     height: 60px;
-    background-image: url(../assets/doc1.png);
+    background-image: url(assets/doc1.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     image-rendering: pixelated;
 }
- 
+
 .docs-file-div p {
     font-size: 0.6rem;
     text-align: center;
 }
- 
+
 /* ── DOC POPUP ───────────────────────────────────────────────── */
- 
+
 .doc-popup {
     width: 220px;
     min-height: 0;
 }
- 
+
 .doc-popup-body {
     display: flex;
     flex-direction: column;
@@ -320,23 +329,23 @@
     padding: 16px 14px 14px;
     gap: 8px;
 }
- 
+
 .doc-popup-icon {
     width: 52px;
     height: 64px;
-    background-image: url(../assets/doc1.png);
+    background-image: url(assets/doc1.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     image-rendering: pixelated;
 }
- 
+
 .doc-popup-title {
     font-size: 0.65rem;
     text-align: center;
     padding: 0 4px;
 }
- 
+
 .doc-popup-stripe {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -345,17 +354,17 @@
     width: 100%;
     margin: 2px 0;
 }
- 
+
 .doc-popup-stripe div { height: 6px; }
 .doc-popup-stripe div:nth-child(odd)  { background: var(--my-pink); }
 .doc-popup-stripe div:nth-child(even) { background: #ede0ff; }
- 
+
 .doc-popup-btns {
     display: flex;
     gap: 6px;
     width: 100%;
 }
- 
+
 .doc-btn {
     flex: 1;
     font-family: 'Tiny5', monospace;
@@ -370,14 +379,66 @@
     box-shadow: var(--my-dark-blue) 2px 2px;
     display: block;
 }
- 
+
 .doc-btn:hover    { background: var(--my-pink); }
 .doc-btn:active   { box-shadow: none; transform: translate(2px, 2px); }
- 
+
 .doc-btn-dl {
     background: var(--my-dark-blue);
     color: var(--my-white);
 }
- 
+
 .doc-btn-dl * { color: var(--my-white); }
 .doc-btn-dl:hover { background: var(--my-pink); color: var(--my-dark-blue); }
+
+
+
+/* ── PROJECT LINK BAR ────────────────────────────────────────── */
+
+.project-link-bar {
+    display: flex;
+    gap: 6px;
+    border-top: var(--my-border);
+    padding: 8px 0 0;
+    margin-top: 4px;
+}
+
+.project-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'Tiny5', monospace;
+    font-size: 0.6rem;
+    border: var(--my-border);
+    padding: 5px 10px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: var(--my-dark-blue) 2px 2px;
+}
+
+.project-link-btn:active {
+    box-shadow: none;
+    transform: translate(2px, 2px);
+}
+
+.project-link-btn--web {
+    background: var(--my-pink);
+    color: var(--my-dark-blue);
+}
+
+.project-link-btn--web:hover {
+    background: #f070d8;
+}
+
+.project-link-btn--gh {
+    background: var(--my-dark-blue);
+    color: var(--my-white);
+}
+
+.project-link-btn--gh svg {
+    fill: var(--my-white);
+}
+
+.project-link-btn--gh:hover {
+    background: #2a0160;
+}

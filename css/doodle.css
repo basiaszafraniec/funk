@@ -95,7 +95,7 @@
     box-shadow: var(--my-dark-blue) 4px 4px;
     background: var(--my-white);
     padding: 4px;
-    z-index: 5;
+    z-index: 2;
     cursor: move;
 }
 

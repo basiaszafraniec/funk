@@ -1,15 +1,15 @@
 import { createTopBar } from "./topBar.js";
+import { nextZ } from "../zIndex.js";
 
 const SCALE = 8;
 const COLS  = 20;
 const ROWS  = 20;
 const COLORS = ["#430396","#fffcee","#c4a0f5","#a5e0ff","#fff6a3","#ff5bec","#ffa5e0","#96ffd8"];
 
-let topZ = 50;
 
 export function openDoodleWindow() {
     if (document.getElementById("doodle-window")) {
-        document.getElementById("doodle-window").style.zIndex = ++topZ;
+        document.getElementById("doodle-window").style.zIndex = nextZ();
         return;
     }
 
@@ -18,7 +18,7 @@ export function openDoodleWindow() {
     win.id = "doodle-window";
     win.style.left = window.innerWidth  / 2 - 130 + (Math.random() * 60 - 30) + "px";
     win.style.top  = window.innerHeight / 2 - 160 + (Math.random() * 60 - 30) + "px";
-    win.style.zIndex = ++topZ;
+    win.style.zIndex = nextZ();
 
     const topBar = createTopBar({ title: "doodle", closable: true });
     win.appendChild(topBar);

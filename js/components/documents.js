@@ -1,4 +1,6 @@
 import { createTopBar } from "./topBar.js";
+import { nextZ, bringToFront } from "../zIndex.js";
+
 
 const DOCUMENTS = [
     { id: "cv",             name: "cv",             file: "assets/docs/BevisDiploma.pdf"             },
@@ -16,7 +18,7 @@ export function openDocumentsWindow() {
     win.id = "documents-window";
     win.style.left = window.innerWidth  / 2 - 160 + (Math.random() * 60 - 30) + "px";
     win.style.top  = window.innerHeight / 2 - 160 + (Math.random() * 60 - 30) + "px";
-    win.style.zIndex = ++topZ;
+    win.style.zIndex = nextZ();
 
     win.appendChild(createTopBar({ closable: true }));
 
@@ -66,7 +68,7 @@ export function openDocumentsWindow() {
 function openDocPopup(doc) {
     const existingId = "doc-" + doc.id;
     if (document.getElementById(existingId)) {
-        document.getElementById(existingId).style.zIndex = ++topZ;
+        document.getElementById(existingId).style.zIndex = nextZ();
         return;
     }
 
@@ -75,7 +77,7 @@ function openDocPopup(doc) {
     win.id = existingId;
     win.style.left = window.innerWidth  / 2 - 150 + (Math.random() * 80 - 40) + "px";
     win.style.top  = window.innerHeight / 2 - 200 + (Math.random() * 80 - 40) + "px";
-    win.style.zIndex = ++topZ;
+    win.style.zIndex = nextZ();
 
     win.appendChild(createTopBar({ title: doc.name, closable: true }));
 
