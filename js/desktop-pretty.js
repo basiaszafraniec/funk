@@ -198,9 +198,9 @@ function initSkyCanvas() {
     }
 
     const birds = [
-        { x: -30, y: 0.18, speed: 0.55, flap: 0, flapDir: 1, active: false, next: 8000 },
-        { x: -60, y: 0.22, speed: 0.45, flap: 3, flapDir: 1, active: false, next: 20000 },
-        { x: -40, y: 0.13, speed: 0.60, flap: 6, flapDir: -1, active: false, next: 35000 },
+        { x: -30, y: 0.18, speed: 0.55, flap: 0, flapDir: 1, active: false, next: 4000 },
+        { x: -60, y: 0.22, speed: 0.45, flap: 3, flapDir: 1, active: false, next: 10000 },
+        { x: -40, y: 0.13, speed: 0.60, flap: 6, flapDir: -1, active: false, next: 15000 },
     ];
 
     birds.forEach(b => setTimeout(() => activateBird(b), b.next));

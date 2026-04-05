@@ -1,6 +1,7 @@
 import { createTopBar } from "./topBar.js";
 import { FILE_SYSTEM } from "../data/projectData.js";
 import { openProjectWindow } from "./projectWindow.js";
+import { nextZ } from "../zIndex.js";
 
 export function openProjectsWindow() {
 
@@ -12,6 +13,8 @@ export function openProjectsWindow() {
 
     win.style.left = "30px";
     win.style.top  = "30px";
+    win.style.zIndex = nextZ();
+
 
     win.appendChild(createTopBar({ closable: true }));
 

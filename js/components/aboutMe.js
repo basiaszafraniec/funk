@@ -1,4 +1,5 @@
 import { createTopBar } from "./topBar.js";
+import { nextZ } from "../zIndex.js";
 
 export function openAboutMeWindow() {
 
@@ -11,7 +12,7 @@ export function openAboutMeWindow() {
     // same random positioning as other popup windows
     win.style.left = window.innerWidth  / 2 - 280 + (Math.random() * 80 - 40) + "px";
     win.style.top  = window.innerHeight / 2 - 220 + (Math.random() * 80 - 40) + "px";
-    win.style.zIndex = 20;
+    win.style.zIndex = nextZ();
 
     const topBar = createTopBar({ closable: true });
     win.appendChild(topBar);
