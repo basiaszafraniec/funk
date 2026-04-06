@@ -21,6 +21,11 @@
     width: 80px;
 }
 
+.desktop-icon:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s;
+}
+
 .desktop-icon p {
     font-size: 0.8rem;
     margin-top: 4px;

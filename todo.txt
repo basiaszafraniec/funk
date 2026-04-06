@@ -1,0 +1,20 @@
+-update all projects
+-update documents
+-update about me
+-find good pictures or art for about me and the icon
+-update post it note
+-make text big enough and responsive layout for every window
+    -about me
+    -projects
+    -documents
+-move audio and doodle to the side
+-update audio with ur songs
+-add hover animation
+-make cat functional
+    -moews on click
+    -says fun facts some times or asks questions
+-experiment with color schemes/backgrounds and icons
+-update flowting text
+-maybe add dragging to the desktop icons 
+-more fun stuff
+
