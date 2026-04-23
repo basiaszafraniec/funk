@@ -1,68 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>funky</title>
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/title-screen.css">
-    <link rel="stylesheet" href="css/desktop.css">
-    <link rel="stylesheet" href="css/window.css">
-    <link rel="stylesheet" href="css/files.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/audio-player.css">
-    <link rel="stylesheet" href="css/projects.css">
-    <link rel="stylesheet" href="css/about-me.css">
-    <link rel="stylesheet" href="css/doodle.css">
-    <link rel="stylesheet" href="css/mobile.css">
-    <link rel="stylesheet" href="css/documents.css">
-</head>
-
-<body>
-    <div class="scrolling-bar">
-        <ul>
-            <li>CRAZYHORSE</li>
-            <li>SAUSYMEATBALL</li>
-            <li>DANCINGMONKEY</li>
-            <li>PANDAFART</li>
-
-            <li>CRAZYHORSE</li>
-            <li>SAUSYMEATBALL</li>
-            <li>DANCINGMONKEY</li>
-            <li>PANDAFART</li>
-
-            <li>CRAZYHORSE</li>
-            <li>SAUSYMEATBALL</li>
-            <li>DANCINGMONKEY</li>
-            <li>PANDAFART</li>
-
-        </ul>
-    </div>
-    <div class="desktop"></div>
-    <div class="sticky">
-        <span class="tape"></span>
-        <div>
-            <a href="mailto:basia.szafraniec@gmail.com">
-                <img src="assets/email.png" alt="email">
-            </a>
-            <a href="https://github.com/basiaszafraniec" target="_blank">
-                <img src="assets/github.png" alt="github">
-            </a>
-            <a href="https://www.linkedin.com/in/basia-szafraniec" target="_blank">
-                <img src="assets/linkedin.png" alt="linkedin">
-            </a>
-        </div>
-    </div>
-
-
-    <img src="assets/cat1.png" alt="pixelated cat" class="footer-cat">
-
-    <footer>
-
-        <div id="exit-btn" onclick="sessionStorage.removeItem('visited'); location.reload()">&#9211; exit</div>
-    </footer>
-    <script type="module" src="js/script.js"></script>
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basia Szafraniec — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>

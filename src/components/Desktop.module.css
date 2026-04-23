@@ -1,0 +1,174 @@
+.desktop {
+  width: 100vw;
+  height: 100dvh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── ticker ── */
+.ticker {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 20px;
+  background-color: var(--cream);
+  border-bottom: var(--border);
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+}
+
+.tickerList {
+  display: inline-flex;
+  list-style: disc;
+  align-items: center;
+  animation: tickerScroll 40s linear infinite;
+}
+
+.tickerList li {
+  font-family: var(--font-pixel);
+  font-size: 6px;
+  padding: 0 2.5rem;
+  color: var(--purple);
+}
+
+@keyframes tickerScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.333%); }
+}
+
+/* ── icons ── */
+.iconWrap {
+  position: fixed;
+  z-index: 5;
+  cursor: inherit;
+  user-select: none;
+  touch-action: none;
+}
+
+.iconDragging {
+  z-index: 8998;
+  opacity: 0.85;
+}
+
+/* ── sticky note ── */
+.sticky {
+  position: absolute;
+  width: 180px;
+  min-height: 140px;
+  padding: 1.2rem;
+  background: var(--yellow);
+  top: 70vh;
+  left: 80vw;
+  transform: rotate(-3deg);
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.3), 0 15px 20px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+  z-index: 3;
+}
+
+.sticky::after {
+  content: '';
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 24px; height: 24px;
+  background: linear-gradient(135deg, transparent 50%, rgba(0,0,0,0.12) 50%);
+}
+
+.sticky:hover { transform: rotate(0deg) scale(1.03); }
+
+.tape {
+  position: absolute;
+  top: -12px; left: 50%;
+  width: 70px; height: 20px;
+  background: rgba(255,255,255,0.5);
+  border: 1px solid rgba(0,0,0,0.15);
+  transform: translateX(-50%) rotate(-2deg);
+}
+
+.stickyLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stickyLink {
+  font-family: var(--font-pixel);
+  font-size: 6px;
+  color: var(--purple);
+  line-height: 1.8;
+  transition: color 0.1s;
+}
+
+.stickyLink:hover { color: var(--pink); }
+
+/* ── user stickers ── */
+.sticker {
+  position: fixed;
+  z-index: 4;
+  border: var(--border);
+  box-shadow: var(--shadow-sm);
+  background: var(--cream);
+  padding: 3px;
+  cursor: grab;
+}
+
+.sticker:active { cursor: grabbing; }
+
+.stickerClose {
+  position: absolute;
+  top: -8px; right: -8px;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--purple);
+  color: var(--cream);
+  font-size: 11px;
+  border: var(--border);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  line-height: 1;
+}
+
+.stickerClose:hover { background: #e53535; }
+
+/* ── cat ── */
+.cat {
+  position: fixed;
+  bottom: 38px;
+  right: 60px;
+  width: 80px;
+  image-rendering: pixelated;
+  z-index: 8999;
+  cursor: pointer;
+  transition: transform 0.12s;
+}
+
+.cat:hover { transform: scale(1.06); }
+
+@keyframes catBounce {
+  0%   { transform: scale(1) translateY(0); }
+  30%  { transform: scale(1.15) translateY(-8px); }
+  60%  { transform: scale(0.96) translateY(2px); }
+  100% { transform: scale(1) translateY(0); }
+}
+
+.catBounce { animation: catBounce 0.4s ease; }
+
+/* ── mobile ── */
+@media (max-width: 768px) {
+  .iconWrap { position: static !important; }
+  .desktop  {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 24px 4px 80px;
+    overflow-y: auto;
+    height: auto;
+    min-height: 100dvh;
+  }
+  .sticky { display: none; }
+  .cat    { display: none; }
+}

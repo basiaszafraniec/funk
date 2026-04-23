@@ -1,0 +1,100 @@
+.taskbar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: 28px;
+  background: var(--cream);
+  border-top: var(--border);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 8px;
+  z-index: 9000;
+}
+
+.brand {
+  font-family: var(--font-pixel);
+  font-size: 6px;
+  padding: 3px 8px;
+  background: var(--pink);
+  color: var(--purple);
+  border: var(--border);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: transform 0.08s, box-shadow 0.08s;
+}
+
+.brand:hover   { transform: translate(-1px,-1px); box-shadow: var(--purple) 4px 4px; }
+.brand:active,
+.brandActive   { transform: translate(2px,2px); box-shadow: none; }
+
+.sep {
+  width: 1px;
+  height: 18px;
+  background: var(--purple);
+  opacity: 0.2;
+  flex-shrink: 0;
+}
+
+.windowList {
+  flex: 1;
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  min-width: 0;
+}
+
+.windowList::-webkit-scrollbar { display: none; }
+
+.winBtn {
+  font-family: var(--font-pixel);
+  font-size: 6px;
+  padding: 3px 8px;
+  background: var(--cream-dark);
+  color: var(--purple);
+  border: var(--border);
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: var(--shadow-sm);
+  transition: background 0.1s, transform 0.08s, box-shadow 0.08s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.winBtn:hover   { background: var(--blue); }
+.winBtn:active  { transform: translate(2px,2px); box-shadow: none; }
+
+.minimized {
+  opacity: 0.55;
+  background: var(--cream);
+  box-shadow: none;
+}
+
+.winIcon { font-size: 10px; image-rendering: auto; }
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.exitBtn {
+  font-size: 13px;
+  color: var(--purple);
+  opacity: 0.6;
+  cursor: pointer;
+  transition: opacity 0.1s;
+}
+
+.exitBtn:hover { opacity: 1; color: #e53535; }
+
+.clock {
+  font-family: var(--font-pixel);
+  font-size: 6px;
+  color: var(--purple);
+  white-space: nowrap;
+}

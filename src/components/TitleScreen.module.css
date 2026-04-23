@@ -1,0 +1,139 @@
+.screen {
+  position: fixed;
+  inset: 0;
+  background-color: rgb(165, 224, 255);
+  background-image:
+    linear-gradient(to right,  var(--purple) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--purple) 1px, transparent 1px);
+  background-size: 40px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+.fadeOut { opacity: 0; pointer-events: none; }
+
+.ticker {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 20px;
+  background: var(--cream);
+  border-bottom: var(--border);
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.tickerList {
+  display: inline-flex;
+  list-style: disc;
+  align-items: center;
+  animation: tickerScroll 25s linear infinite;
+}
+
+.tickerList li {
+  font-family: var(--font-pixel);
+  font-size: 6px;
+  padding: 0 2.5rem;
+  color: var(--purple);
+}
+
+@keyframes tickerScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.titleFooter {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 10px;
+  background: var(--cream);
+  border-top: var(--border);
+}
+
+/* ── card ── */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  z-index: 1;
+  text-align: center;
+  padding: 20px 28px;
+}
+
+.icon {
+  width: 80px;
+  height: 80px;
+  image-rendering: pixelated;
+}
+
+.name {
+  font-family: var(--font-pixel);
+  font-size: clamp(16px, 3.5vw, 30px);
+  color: var(--purple);
+  line-height: 1.5;
+}
+
+.sub {
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  color: var(--purple);
+  opacity: 0.5;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.btnWrap { margin-top: 6px; position: relative; }
+
+.btn {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  padding: 8px 22px;
+  background: var(--pink);
+  color: var(--purple);
+  border: var(--border);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: transform 0.08s, box-shadow 0.08s;
+}
+
+.btn:hover  { transform: translate(-1px,-1px); box-shadow: var(--purple) 4px 4px; }
+.btn:active { transform: translate(2px,2px); box-shadow: none; }
+
+/* loading */
+.loadLabel {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  color: var(--purple);
+}
+
+.track {
+  width: 200px;
+  height: 10px;
+  border: var(--border);
+  background: var(--cream);
+  display: flex;
+  gap: 1px;
+  padding: 1px;
+}
+
+.block {
+  height: 100%;
+  flex: 1;
+  background: transparent;
+  transition: background 0.06s;
+}
+
+.block.on { background: var(--purple); }
+
+.loadMsg {
+  font-family: var(--font-pixel);
+  font-size: 6px;
+  color: var(--purple);
+  opacity: 0.45;
+  min-height: 12px;
+}

@@ -1,6 +1,5 @@
 export const PROJECT_DATA = {
 
-    // ── JAVASCRIPT ───────────────────────────────────────────
     suwmania: {
         title: "Suwmania",
         stack: ["JavaScript", "HTML", "CSS", "PHP"],
@@ -13,7 +12,7 @@ export const PROJECT_DATA = {
 
     weather: {
         title: "Weather App",
-        stack: ["React", "CSS", "API"],
+        stack: ["React", "HTML Canvas", "API"],
         learned: ["working with public APIs", "dynamic UI updates"],
         description: "A simple little weather app that fetches data from a public API and displays the current weather for a searched location. In the little scene the weather conditions and charachter's outfit change based on the fetched data. The UI leaves a lot to be desired but my main goal was to just have some fun with APIs and dynamic data in React, as well as dip my toes in pixel art.",
         type: "image",
@@ -34,8 +33,8 @@ export const PROJECT_DATA = {
 
     raccoony: {
         title: "Raccoony",
-        stack: ["JavaScript", "HTML", "CSS"],
-        learned: ["character animation", "canvas basics", "event-driven design"],
+        stack: ["React", "API", "HTML Canvas"],
+        learned: ["mobile first design", "map implementation"],
         description: "An interactive raccoon character.",
         type: "image",
         images: []

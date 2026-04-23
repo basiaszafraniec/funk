@@ -1,0 +1,125 @@
+.menu {
+  position: fixed;
+  bottom: 28px;
+  left: 2px;
+  width: 240px;
+  background: var(--cream);
+  border: var(--border);
+  box-shadow: var(--shadow);
+  z-index: 9100;
+  animation: menuPop 0.12s ease-out;
+}
+
+@keyframes menuPop {
+  from { transform: translateY(6px); opacity: 0; }
+  to   { transform: translateY(0);   opacity: 1; }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--purple);
+  border-bottom: var(--border);
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--pink);
+  border: 2px solid var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-pixel);
+  font-size: 14px;
+  color: var(--purple);
+  flex-shrink: 0;
+}
+
+.headerName {
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  color: var(--cream);
+  line-height: 1.6;
+}
+
+.headerRole {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--pink);
+  margin-top: 2px;
+}
+
+.body { padding: 4px 0; }
+
+.sectionLabel {
+  font-family: var(--font-pixel);
+  font-size: 5px;
+  color: var(--purple);
+  opacity: 0.45;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 4px 12px 2px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background 0.08s;
+}
+
+.item:hover { background: var(--pink); }
+.item:hover .itemLabel { color: var(--purple); }
+
+.itemIcon { font-size: 18px; width: 24px; text-align: center; image-rendering: auto; flex-shrink: 0; }
+
+.itemText { display: flex; flex-direction: column; gap: 1px; }
+
+.itemLabel {
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  color: var(--purple);
+}
+
+.itemSub {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--purple);
+  opacity: 0.55;
+}
+
+.divider {
+  height: 1px;
+  background: var(--purple);
+  opacity: 0.15;
+  margin: 2px 8px;
+}
+
+.footer { padding: 4px 0 6px; }
+
+.footerItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 5px 12px;
+  cursor: pointer;
+  font-family: var(--font-pixel);
+  font-size: 6px;
+  color: var(--purple);
+  text-decoration: none;
+  transition: background 0.08s;
+}
+
+.footerItem span { font-size: 14px; width: 20px; text-align: center; image-rendering: auto; }
+.footerItem:hover { background: var(--blue); }
+
+.shutdown { color: #800; }
+.shutdown:hover { background: #ffdddd !important; }

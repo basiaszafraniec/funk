@@ -1,0 +1,106 @@
+.player {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  background: var(--cream);
+}
+
+.trackInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.albumImg {
+  width: 52px;
+  height: 52px;
+  image-rendering: pixelated;
+  border: var(--border);
+  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.trackName {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--purple);
+  line-height: 1.6;
+}
+
+.trackArtist {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--purple);
+  opacity: 0.55;
+  margin-top: 3px;
+}
+
+.progressBar {
+  width: 100%;
+  height: 10px;
+  background: var(--cream-dark);
+  border: var(--border);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--purple);
+  transition: width 0.1s linear;
+}
+
+.times {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--purple);
+  opacity: 0.6;
+  margin-top: -6px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.playBtn {
+  width: 44px;
+  height: 44px;
+  background: var(--pink);
+  color: var(--purple);
+  border: var(--border);
+  font-size: 16px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.08s, box-shadow 0.08s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.playBtn:hover  { transform: translate(-1px,-1px); box-shadow: var(--purple) 4px 4px; }
+.playBtn:active { transform: translate(2px,2px); box-shadow: none; }
+
+.muteBtn, .heartBtn {
+  width: 34px;
+  height: 34px;
+  background: var(--cream-dark);
+  border: var(--border);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.muteBtn:hover,
+.heartBtn:hover { background: var(--pink); }
