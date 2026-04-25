@@ -4,6 +4,7 @@ export function useDrag(onPositionChange, onFocus) {
   const dragging = useRef(false)
   const startPos = useRef({ x: 0, y: 0 })
   const startMouse = useRef({ x: 0, y: 0 })
+  const winWidth = useRef(200)
 
   const onPointerDown = useCallback(
     (e) => {
@@ -16,17 +17,25 @@ export function useDrag(onPositionChange, onFocus) {
       if (el) {
         const rect = el.getBoundingClientRect()
         startPos.current = { x: rect.left, y: rect.top }
+        winWidth.current = rect.width
       }
 
       const handleMove = (ev) => {
         if (!dragging.current) return
         const dx = ev.clientX - startMouse.current.x
         const dy = ev.clientY - startMouse.current.y
-        const newX = Math.max(0, startPos.current.x + dx)
-        const newY = Math.max(0, startPos.current.y + dy)
-        const maxX = window.innerWidth - 200
+        const rawX = startPos.current.x + dx
+        const rawY = startPos.current.y + dy
+
+        const visible = winWidth.current * 0.2
+        const minX = -(winWidth.current - visible)
+        const maxX = window.innerWidth - visible
         const maxY = window.innerHeight - 40
-        onPositionChange({ x: Math.min(newX, maxX), y: Math.min(newY, maxY) })
+
+        onPositionChange({
+          x: Math.min(Math.max(rawX, minX), maxX),
+          y: Math.min(Math.max(rawY, 0), maxY),
+        })
       }
 
       const handleUp = () => {
