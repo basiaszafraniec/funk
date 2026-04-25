@@ -8,8 +8,17 @@ export default function ProjectDetailWindow({ projectId }) {
 
   if (!project) return <p className={styles.missing}>project not found</p>
 
-  const prev = () => setImgIndex(i => (i - 1 + project.images.length) % project.images.length)
-  const next = () => setImgIndex(i => (i + 1) % project.images.length)
+  const images = project.images ?? []
+  const prev = () => setImgIndex(i => (i - 1 + images.length) % images.length)
+  const next = () => setImgIndex(i => (i + 1) % images.length)
+
+  const webLinks = project.webLink
+    ? (Array.isArray(project.webLink) ? project.webLink : [project.webLink])
+    : []
+
+  const iframeStyle = {
+    transform: `translate(${project.iframeX ?? -50}%, ${project.iframeY ?? -50}%) scale(${project.iframeScale ?? 0.5})`,
+  }
 
   return (
     <div className={styles.body}>
@@ -34,25 +43,25 @@ export default function ProjectDetailWindow({ projectId }) {
       {project.type === 'iframe' && project.src && (
         <div className={styles.media}>
           <div className={styles.iframeWrap}>
-            <iframe src={project.src} title={project.title} className={styles.iframe} />
+            <iframe src={project.src} title={project.title} className={styles.iframe} style={iframeStyle} />
           </div>
         </div>
       )}
 
-      {project.type === 'image' && project.images?.length === 0 && (
+      {project.type === 'image' && images.length === 0 && (
         <div className={styles.placeholder}>
           <p>images coming soon</p>
         </div>
       )}
 
-      {project.type === 'image' && project.images?.length > 0 && (
+      {project.type === 'image' && images.length > 0 && (
         <div className={styles.media}>
           <img
-            src={project.images[imgIndex]}
+            src={images[imgIndex]}
             alt={`${project.title} screenshot ${imgIndex + 1}`}
             className={styles.screenshot}
           />
-          {project.images.length > 1 && (
+          {images.length > 1 && (
             <div className={styles.imgNav}>
               <button onClick={prev}>←</button>
               <span>{imgIndex + 1} / {project.images.length}</span>
@@ -62,13 +71,32 @@ export default function ProjectDetailWindow({ projectId }) {
         </div>
       )}
 
+      {project.type === 'video' && images.length > 0 && (
+        <div className={styles.media}>
+          <video
+            key={images[imgIndex]}
+            src={images[imgIndex]}
+            className={styles.screenshot}
+            controls
+            playsInline
+          />
+          {images.length > 1 && (
+            <div className={styles.imgNav}>
+              <button onClick={prev}>←</button>
+              <span>{imgIndex + 1} / {images.length}</span>
+              <button onClick={next}>→</button>
+            </div>
+          )}
+        </div>
+      )}
+
       {/* links */}
       <div className={styles.linkBar}>
-        {project.webLink && (
-          <a href={project.webLink} target="_blank" rel="noreferrer" className={`${styles.linkBtn} ${styles.web}`}>
+        {webLinks.map((url, i) => (
+          <a key={i} href={url} target="_blank" rel="noreferrer" className={`${styles.linkBtn} ${styles.web}`}>
             ↗ visit site
           </a>
-        )}
+        ))}
         {project.ghLink && (
           <a href={project.ghLink} target="_blank" rel="noreferrer" className={`${styles.linkBtn} ${styles.gh}`}>
             ⌂ github
