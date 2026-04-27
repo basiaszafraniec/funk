@@ -7,7 +7,7 @@ export const PROJECT_DATA = {
       'As my first JS project, I recreated a little puzzle toy I used to play with as a kid. A sliding tiles game with a move counter and high score tracker.',
     type: 'iframe',
     src: 'https://host914956.xce.pl/basia/suwmania/B/',
-    iframeScale: 0.5,
+    iframeScale: 0.46,
     iframeX: -50,
     iframeY: -50,
     ghLink: 'https://github.com/basaiszafraniec/suwmaniaB',
@@ -60,6 +60,7 @@ export const PROJECT_DATA = {
     description: 'A small Pygame game to explore 2D game development.',
     type: 'video',
     images: ['/assets/project-images/stars-vid.mov'],
+    ghLink: 'https://github.com/basiaszafraniec/stars_game2',
   },
   cube: {
     title: '3D Cube',
@@ -68,6 +69,7 @@ export const PROJECT_DATA = {
     description: 'Just a fun little experiment to figuring out how to project 3D coordinates onto a 2D screen.',
     type: 'video',
     images: ['/assets/project-images/cube-vid.mov'],
+    ghLink: 'https://github.com/basiaszafraniec/cube_simulator',
   },
   donut: {
     title: 'Donut',

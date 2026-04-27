@@ -44,7 +44,7 @@
   height: 10px;
   background: var(--cream-dark);
   border: var(--border);
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
   overflow: hidden;
 }
 
@@ -83,7 +83,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
 }
 
 .playBtn:hover  { transform: translate(-1px,-1px); box-shadow: var(--purple) 4px 4px; }
@@ -98,7 +98,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
   transition: background 0.1s;
 }
 

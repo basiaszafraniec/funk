@@ -27,7 +27,7 @@
   height: 14px;
   background: var(--pink);
   border: var(--border);
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
   display: flex;
   align-items: center;
   justify-content: center;
