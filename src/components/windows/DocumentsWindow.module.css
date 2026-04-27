@@ -35,7 +35,7 @@
   align-items: center;
   gap: 8px;
   padding: 9px 12px;
-  cursor: var(--cursor-pointer);
+  cursor: pointer;
   border-bottom: 1px solid #e8d5ff;
   font-family: var(--font-mono);
   font-size: 12px;
@@ -100,7 +100,7 @@
   flex-direction: column;
   align-items: center;
   padding: 8px 6px;
-  cursor: var(--cursor-pointer);
+  cursor: pointer;
   gap: 5px;
   border: 1px solid transparent;
   transition: background 0.1s;
@@ -165,7 +165,7 @@
   background: var(--cream);
   border: var(--border);
   color: var(--purple);
-  cursor: var(--cursor-pointer);
+  cursor: pointer;
   box-shadow: var(--shadow-sm);
   transition: transform 0.08s, box-shadow 0.08s;
 }
@@ -188,7 +188,7 @@
   padding: 5px 8px;
   border: var(--border);
   box-shadow: var(--shadow-sm);
-  cursor: var(--cursor-pointer);
+  cursor: pointer;
   display: inline-block;
   text-decoration: none;
   transition: transform 0.08s, box-shadow 0.08s;

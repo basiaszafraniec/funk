@@ -26,7 +26,7 @@
   width: 20px;
   height: 20px;
   border: var(--border);
-  cursor: var(--cursor-pointer);
+  cursor: pointer;
   transition: transform 0.1s, box-shadow 0.1s;
 }
 
@@ -44,7 +44,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: var(--cursor-pointer);
+  cursor: pointer;
   font-family: var(--font-mono);
   transition: background 0.1s;
 }
@@ -77,7 +77,7 @@
   color: var(--purple);
   border: var(--border);
   box-shadow: var(--shadow-sm);
-  cursor: var(--cursor-pointer);
+  cursor: pointer;
   transition: transform 0.08s, box-shadow 0.08s;
   align-self: stretch;
 }

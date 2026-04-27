@@ -145,7 +145,7 @@
   border: var(--border);
   padding: 3px 10px;
   box-shadow: var(--shadow-sm);
-  cursor: var(--cursor-pointer);
+  cursor: pointer;
   color: var(--purple);
   transition: transform 0.08s, box-shadow 0.08s;
 }
@@ -185,7 +185,7 @@
   font-size: 6px;
   border: var(--border);
   padding: 6px 10px;
-  cursor: var(--cursor-pointer);
+  cursor: pointer;
   text-decoration: none;
   box-shadow: var(--shadow-sm);
   transition: transform 0.08s, box-shadow 0.08s;

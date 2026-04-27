@@ -27,13 +27,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  cursor: var(--cursor-grab);
+  cursor: grab;
   user-select: none;
   touch-action: none;
   padding: 0 8px;
 }
 
-.titlebar:active { cursor: var(--cursor-grabbing); }
+.titlebar:active { cursor: grabbing; }
 
 /* left: 3 dots */
 .dots {
@@ -52,7 +52,7 @@
 }
 
 .dot.close {
-  cursor: var(--cursor-pointer);
+  cursor: pointer;
   transition: background 0.1s;
 }
 
@@ -93,7 +93,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: var(--cursor-pointer);
+  cursor: pointer;
   background: none;
   border: none;
   padding: 0;
