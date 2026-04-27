@@ -60,7 +60,12 @@ export function useGridDrag(initialPositions) {
       const raw = { x: ev.clientX - startX, y: ev.clientY - startY }
       const clamped = clamp(raw.x, raw.y)
       const snapped = snap(clamped.x, clamped.y)
-      setPositions(prev => ({ ...prev, [id]: snapped }))
+      setPositions(prev => {
+        const occupied = Object.entries(prev).some(
+          ([otherId, pos]) => otherId !== id && pos.x === snapped.x && pos.y === snapped.y
+        )
+        return occupied ? prev : { ...prev, [id]: snapped }
+      })
       setDraggingId(null)
       setLivePos(null)
       window.removeEventListener('pointermove', onMove)
