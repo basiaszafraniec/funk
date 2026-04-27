@@ -87,6 +87,21 @@ export default function Desktop() {
     if (audio) { audio.currentTime = 0; audio.play().catch(() => {}) }
   }
 
+  const [stickyPos, setStickyPos] = useState(null)
+  const onStickyPointerDown = useCallback((e) => {
+    if (e.button !== 0) return
+    e.stopPropagation()
+    e.currentTarget.setPointerCapture(e.pointerId)
+    const el = e.currentTarget
+    const rect = el.getBoundingClientRect()
+    const startX = e.clientX - rect.left
+    const startY = e.clientY - rect.top
+    const onMove = (ev) => setStickyPos({ x: ev.clientX - startX, y: ev.clientY - startY })
+    const onUp   = () => { window.removeEventListener('pointermove', onMove); window.removeEventListener('pointerup', onUp) }
+    window.addEventListener('pointermove', onMove)
+    window.addEventListener('pointerup', onUp)
+  }, [])
+
   const [stickerPositions, setStickerPositions] = useState({})
   const onStickerPointerDown = useCallback((id, e) => {
     if (e.button !== 0) return
@@ -134,12 +149,17 @@ export default function Desktop() {
       })}
 
       {/* sticky note */}
-      <div className={styles.sticky} draggable={false} onDragStart={e => e.preventDefault()}>
+      <div
+        className={styles.sticky}
+        style={stickyPos ? { left: stickyPos.x, top: stickyPos.y } : undefined}
+        onPointerDown={onStickyPointerDown}
+      >
         <span className={styles.tape} />
+        <p className={styles.stickyTitle}>say hi! ✦</p>
         <div className={styles.stickyLinks}>
-          <a href="mailto:basia.szafraniec@gmail.com" className={styles.stickyLink}>✉ email</a>
-          <a href="https://github.com/basiaszafraniec" target="_blank" rel="noreferrer" className={styles.stickyLink}>⌂ github</a>
-          <a href="https://www.linkedin.com/in/basia-szafraniec" target="_blank" rel="noreferrer" className={styles.stickyLink}>◈ linkedin</a>
+          <a href="mailto:basia.szafraniec@gmail.com" className={styles.stickyLink}><span>✉</span> email</a>
+          <a href="https://github.com/basiaszafraniec" target="_blank" rel="noreferrer" className={styles.stickyLink}><span>⌂</span> github</a>
+          <a href="https://www.linkedin.com/in/basia-szafraniec" target="_blank" rel="noreferrer" className={styles.stickyLink}><span>◈</span> linkedin</a>
         </div>
       </div>
 

@@ -56,18 +56,23 @@
 /* ── sticky note ── */
 .sticky {
   position: absolute;
-  width: 180px;
-  min-height: 140px;
-  padding: 1.2rem;
-  background: var(--yellow);
+  width: 200px;
+  padding: 1.4rem 1.1rem 1.2rem;
+  background-color: var(--yellow);
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 22px,
+    rgba(67, 3, 150, 0.07) 22px,
+    rgba(67, 3, 150, 0.07) 23px
+  );
   top: 70vh;
   left: 80vw;
   transform: rotate(-3deg);
-  box-shadow: 2px 2px 0 rgba(0,0,0,0.3), 0 15px 20px rgba(0,0,0,0.2);
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.25), 0 12px 20px rgba(0,0,0,0.18);
   transition: transform 0.2s;
   z-index: 3;
   user-select: none;
-  -webkit-user-drag: none;
+  cursor: grab;
 }
 
 .sticky::after {
@@ -75,35 +80,54 @@
   position: absolute;
   bottom: 0; right: 0;
   width: 24px; height: 24px;
-  background: linear-gradient(135deg, transparent 50%, rgba(0,0,0,0.12) 50%);
+  background: linear-gradient(135deg, transparent 50%, rgba(0,0,0,0.1) 50%);
 }
 
 .sticky:hover { transform: rotate(0deg) scale(1.03); }
+.sticky:active { cursor: grabbing; }
 
 .tape {
   position: absolute;
   top: -12px; left: 50%;
   width: 70px; height: 20px;
-  background: rgba(255,255,255,0.5);
-  border: 1px solid rgba(0,0,0,0.15);
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(0,0,0,0.12);
   transform: translateX(-50%) rotate(-2deg);
+}
+
+.stickyTitle {
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  color: var(--purple);
+  margin: 0 0 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed rgba(67, 3, 150, 0.3);
+  line-height: 2;
+  white-space: nowrap;
 }
 
 .stickyLinks {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .stickyLink {
-  font-family: var(--font-pixel);
-  font-size: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
   color: var(--purple);
-  line-height: 1.8;
-  transition: color 0.1s;
+  line-height: 1.5;
+  transition: color 0.1s, transform 0.1s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.stickyLink:hover { color: var(--pink); }
+.stickyLink:hover {
+  color: var(--pink);
+  transform: translateX(2px);
+}
 
 /* ── user stickers ── */
 .sticker {
