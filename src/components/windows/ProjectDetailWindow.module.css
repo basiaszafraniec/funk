@@ -53,8 +53,15 @@
   min-width: 0;
 }
 
-/* image section — portrait flips to two-column with image pinned top-right */
+/* image section */
 .imageLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* below meta: links + description + media; flips to row in portrait */
+.imageBody {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -66,37 +73,18 @@
   gap: 10px;
 }
 
-.imageLayoutPortrait {
+.imageBodyPortrait {
   flex-direction: row;
   align-items: flex-start;
   gap: 16px;
 }
 
-.imageLayoutPortrait .imageInfo {
+.imageBodyPortrait .imageInfo {
   flex: 1;
   min-width: 0;
-  min-height: 280px; /* match media height so meta can sit at bottom */
 }
 
-/* in portrait: links top, description middle, meta pushed to bottom */
-.imageLayoutPortrait .meta {
-  order: 3;
-  margin-top: auto;
-  padding-bottom: 0;
-  border-bottom: none;
-  padding-top: 10px;
-  border-top: var(--border);
-}
-
-.imageLayoutPortrait .linkBar {
-  order: 1;
-}
-
-.imageLayoutPortrait .description {
-  order: 2;
-}
-
-.imageLayoutPortrait .media {
+.imageBodyPortrait .media {
   flex: 0 0 48%;
   max-width: 48%;
 }

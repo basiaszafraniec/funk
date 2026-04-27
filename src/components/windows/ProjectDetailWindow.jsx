@@ -89,28 +89,30 @@ export default function ProjectDetailWindow({ projectId }) {
         </>
       )}
 
-      {/* image — portrait: two-column with image pinned to top-right */}
+      {/* image — meta header always on top; portrait: links+desc left, image right */}
       {project.type === 'image' && (
-        <div className={`${styles.imageLayout} ${isPortrait ? styles.imageLayoutPortrait : ''}`}>
-          <div className={styles.imageInfo}>
-            {metaEl}
-            {linkBarEl}
-            <p className={styles.description}>{project.description}</p>
-          </div>
-          {images.length === 0 && (
-            <div className={styles.placeholder}><p>images coming soon</p></div>
-          )}
-          {images.length > 0 && (
-            <div className={styles.media}>
-              <img
-                src={images[imgIndex]}
-                alt={`${project.title} screenshot ${imgIndex + 1}`}
-                className={`${styles.screenshot} ${imgLoading ? styles.screenshotLoading : ''}`}
-                onLoad={handleImgLoad}
-              />
-              {imgNav}
+        <div className={styles.imageLayout}>
+          {metaEl}
+          <div className={`${styles.imageBody} ${isPortrait ? styles.imageBodyPortrait : ''}`}>
+            <div className={styles.imageInfo}>
+              {linkBarEl}
+              <p className={styles.description}>{project.description}</p>
             </div>
-          )}
+            {images.length === 0 && (
+              <div className={styles.placeholder}><p>images coming soon</p></div>
+            )}
+            {images.length > 0 && (
+              <div className={styles.media}>
+                <img
+                  src={images[imgIndex]}
+                  alt={`${project.title} screenshot ${imgIndex + 1}`}
+                  className={`${styles.screenshot} ${imgLoading ? styles.screenshotLoading : ''}`}
+                  onLoad={handleImgLoad}
+                />
+                {imgNav}
+              </div>
+            )}
+          </div>
         </div>
       )}
 
