@@ -1,6 +1,6 @@
 .layout {
   display: grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 130px 1fr;
   height: 100%;
   min-height: 300px;
   overflow: hidden;
@@ -32,12 +32,12 @@
 .folderRow {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 8px 12px;
+  gap: 6px;
+  padding: 6px 8px;
   cursor: pointer;
   border-bottom: 1px solid #e8d5ff;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 10px;
   color: var(--purple);
   transition: background 0.1s;
 }
@@ -47,8 +47,8 @@
 .folderRow.active { background: var(--pink); }
 
 .folderIcon {
-  width: 20px;
-  height: 16px;
+  width: 16px;
+  height: 13px;
   flex-shrink: 0;
   background-image: url('/assets/folder2.png');
   background-size: contain;

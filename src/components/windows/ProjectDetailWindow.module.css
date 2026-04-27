@@ -75,6 +75,25 @@
 .imageLayoutPortrait .imageInfo {
   flex: 1;
   min-width: 0;
+  min-height: 280px; /* match media height so meta can sit at bottom */
+}
+
+/* in portrait: links top, description middle, meta pushed to bottom */
+.imageLayoutPortrait .meta {
+  order: 3;
+  margin-top: auto;
+  padding-bottom: 0;
+  border-bottom: none;
+  padding-top: 10px;
+  border-top: var(--border);
+}
+
+.imageLayoutPortrait .linkBar {
+  order: 1;
+}
+
+.imageLayoutPortrait .description {
+  order: 2;
 }
 
 .imageLayoutPortrait .media {
@@ -86,6 +105,9 @@
 .media {
   border: var(--border);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 280px;
 }
 
 .iframeWrap {
@@ -105,11 +127,12 @@
 }
 
 .screenshot {
+  flex: 1;
   width: 100%;
-  height: auto;
-  max-height: 65vh;
+  min-height: 0;
   object-fit: contain;
   display: block;
+  background: var(--cream-dark);
   transition: opacity 0.15s ease;
 }
 
