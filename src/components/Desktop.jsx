@@ -92,14 +92,14 @@ export default function Desktop() {
     if (e.button !== 0) return
     e.stopPropagation()
     e.currentTarget.setPointerCapture(e.pointerId)
-    const cur = stickerPositions[id] || { x: 0, y: 0 }
+    const cur = stickerPositions[id] || stickers.find(s => s.id === id) || { x: 0, y: 0 }
     const startX = e.clientX - cur.x
     const startY = e.clientY - cur.y
     const onMove = (ev) => setStickerPositions(p => ({ ...p, [id]: { x: ev.clientX - startX, y: ev.clientY - startY } }))
     const onUp   = () => { window.removeEventListener('pointermove', onMove); window.removeEventListener('pointerup', onUp) }
     window.addEventListener('pointermove', onMove)
     window.addEventListener('pointerup', onUp)
-  }, [stickerPositions])
+  }, [stickerPositions, stickers])
 
   return (
     <div className={styles.desktop}>

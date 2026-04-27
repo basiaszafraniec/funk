@@ -15,23 +15,9 @@ export default function DoodleWindow() {
   const { addSticker } = useWindows()
 
   useEffect(() => {
-    const canvas = canvasRef.current
-    const ctx = canvas.getContext('2d')
-    ctx.fillStyle = '#fffcee'
-    ctx.fillRect(0, 0, canvas.width, canvas.height)
-    drawGrid(ctx)
+    const ctx = canvasRef.current.getContext('2d')
+    ctx.clearRect(0, 0, GRID * CELL, GRID * CELL)
   }, [])
-
-  function drawGrid(ctx) {
-    ctx.strokeStyle = 'rgba(67,3,150,0.1)'
-    ctx.lineWidth = 0.5
-    for (let x = 0; x <= GRID; x++) {
-      ctx.beginPath(); ctx.moveTo(x * CELL, 0); ctx.lineTo(x * CELL, GRID * CELL); ctx.stroke()
-    }
-    for (let y = 0; y <= GRID; y++) {
-      ctx.beginPath(); ctx.moveTo(0, y * CELL); ctx.lineTo(GRID * CELL, y * CELL); ctx.stroke()
-    }
-  }
 
   function paint(e) {
     const canvas = canvasRef.current
@@ -44,20 +30,18 @@ export default function DoodleWindow() {
     const x = Math.floor(((clientX - rect.left) * scaleX) / CELL)
     const y = Math.floor(((clientY - rect.top) * scaleY) / CELL)
     if (x < 0 || y < 0 || x >= GRID || y >= GRID) return
-    ctx.fillStyle = erasing ? '#fffcee' : activeColor
-    ctx.fillRect(x * CELL, y * CELL, CELL, CELL)
-    ctx.strokeStyle = 'rgba(67,3,150,0.1)'
-    ctx.lineWidth = 0.5
-    ctx.strokeRect(x * CELL, y * CELL, CELL, CELL)
+    if (erasing) {
+      ctx.clearRect(x * CELL, y * CELL, CELL, CELL)
+    } else {
+      ctx.fillStyle = activeColor
+      ctx.fillRect(x * CELL, y * CELL, CELL, CELL)
+    }
     setPlaced(false)
   }
 
   function clear() {
-    const canvas = canvasRef.current
-    const ctx = canvas.getContext('2d')
-    ctx.fillStyle = '#fffcee'
-    ctx.fillRect(0, 0, canvas.width, canvas.height)
-    drawGrid(ctx)
+    const ctx = canvasRef.current.getContext('2d')
+    ctx.clearRect(0, 0, GRID * CELL, GRID * CELL)
     setPlaced(false)
   }
 
