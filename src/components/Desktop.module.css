@@ -42,12 +42,13 @@
 .iconWrap {
   position: fixed;
   z-index: 5;
-  cursor: inherit;
+  cursor: var(--cursor-grab);
   user-select: none;
   touch-action: none;
 }
 
 .iconDragging {
+  cursor: var(--cursor-grabbing);
   z-index: 8998;
   opacity: 0.85;
 }
@@ -110,10 +111,10 @@
   box-shadow: var(--shadow-sm);
   background: var(--cream);
   padding: 3px;
-  cursor: grab;
+  cursor: var(--cursor-grab);
 }
 
-.sticker:active { cursor: grabbing; }
+.sticker:active { cursor: var(--cursor-grabbing); }
 
 .stickerClose {
   position: absolute;
