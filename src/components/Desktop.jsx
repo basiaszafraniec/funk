@@ -47,12 +47,12 @@ const WINDOW_TITLES = {
 }
 
 const WINDOW_SIZES = {
-  about:     { width: 560 },
-  projects:  { width: 360, height: 420 },
-  audio:     { width: 300 },
-  doodle:    { width: 420 },
-  documents: { width: 380 },
-  project:   { width: 460 },
+  about:     { width: 600 },
+  projects:  { width: 660, height: 380 },
+  audio:     { width: 320 },
+  doodle:    { width: 460 },
+  documents: { width: 420 },
+  project:   { width: 500 },
 }
 
 const TICKER_WORDS = ['basia', 'szafraniec', 'barbara', 'szafraniec']
