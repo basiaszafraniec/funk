@@ -139,7 +139,8 @@ function DoodleSprite({ src, xPct, yPct, rotate, onClose }) {
         className={styles.doodleClose}
         onPointerDown={(e) => e.stopPropagation()}
         onClick={onClose}
-      >×</button>
+        aria-label="Remove"
+      ><div className={styles.xIcon} /></button>
     </div>
   )
 }

@@ -117,25 +117,25 @@
 
 .stickerClose {
   position: absolute;
-  top: -9px; right: -9px;
+  top: -10px; right: -10px;
   width: 18px; height: 18px;
-  border-radius: 50%;
-  background: var(--purple);
+  background: var(--pink);
   border: var(--border);
+  box-shadow: var(--shadow-sm);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.stickerClose:hover { background: #e53535; }
+.stickerClose:hover { background: #f070d8; }
 
 .stickerClose .xIcon {
   width: 10px;
   height: 10px;
   background-image:
-    linear-gradient(45deg,  transparent 45%, var(--cream) 45%, var(--cream) 55%, transparent 55%),
-    linear-gradient(-45deg, transparent 45%, var(--cream) 45%, var(--cream) 55%, transparent 55%);
+    linear-gradient(45deg,  transparent 45%, var(--purple) 45%, var(--purple) 55%, transparent 55%),
+    linear-gradient(-45deg, transparent 45%, var(--purple) 45%, var(--purple) 55%, transparent 55%);
   flex-shrink: 0;
 }
 

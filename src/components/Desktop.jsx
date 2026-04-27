@@ -151,7 +151,7 @@ export default function Desktop() {
             style={{ left: pos.x, top: pos.y, transform: `rotate(${s.rotate})` }}
             onPointerDown={(e) => onStickerPointerDown(s.id, e)}
           >
-            <img src={s.dataUrl} alt="sticker" draggable={false} style={{ imageRendering: 'pixelated', display: 'block', width: 80 }} />
+            <img src={s.dataUrl} alt="sticker" draggable={false} style={{ imageRendering: 'pixelated', display: 'block', width: 100 }} />
             <button className={styles.stickerClose} onPointerDown={(e) => e.stopPropagation()} onClick={() => removeSticker(s.id)} aria-label="Remove"><div className={styles.xIcon} /></button>
           </div>
         )
