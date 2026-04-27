@@ -53,25 +53,33 @@
   min-width: 0;
 }
 
-/* wraps description + media; flips to row for portrait images */
-.content {
+/* image section — portrait flips to two-column with image pinned top-right */
+.imageLayout {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.contentPortrait {
+.imageInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.imageLayoutPortrait {
   flex-direction: row;
   align-items: flex-start;
   gap: 16px;
 }
 
-.contentPortrait .description {
+.imageLayoutPortrait .imageInfo {
   flex: 1;
+  min-width: 0;
 }
 
-.contentPortrait .media {
-  flex: 0 0 50%;
+.imageLayoutPortrait .media {
+  flex: 0 0 48%;
+  max-width: 48%;
 }
 
 /* media */
@@ -102,6 +110,11 @@
   max-height: 65vh;
   object-fit: contain;
   display: block;
+  transition: opacity 0.15s ease;
+}
+
+.screenshotLoading {
+  opacity: 0;
 }
 
 .imgNav {
