@@ -39,7 +39,7 @@ function Clock() {
 }
 
 export default function Taskbar() {
-  const { windows, focusWindow, minimizeWindow } = useWindows()
+  const { windows, focusWindow, minimizeWindow, closeWindow } = useWindows()
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
@@ -59,21 +59,25 @@ export default function Taskbar() {
 
         <div className={styles.windowList}>
           {windows.map((win) => (
-            <button
-              key={win.id}
-              className={`${styles.winBtn} ${win.minimized ? styles.minimized : ''}`}
-              onClick={() => {
-                if (win.minimized) {
-                  minimizeWindow(win.id)
+            <div key={win.id} className={`${styles.winItem} ${win.minimized ? styles.minimized : ''}`}>
+              <button
+                className={styles.winBtn}
+                onClick={() => {
+                  if (win.minimized) minimizeWindow(win.id)
                   focusWindow(win.id)
-                } else {
-                  minimizeWindow(win.id)
-                }
-              }}
-            >
-              <span className={styles.winIcon}>{WIN_ICONS[win.type] ?? '◈'}</span>
-              {getWinLabel(win)}
-            </button>
+                }}
+              >
+                <span className={styles.winIcon}>{WIN_ICONS[win.type] ?? '◈'}</span>
+                {getWinLabel(win)}
+              </button>
+              <button
+                className={styles.winClose}
+                onClick={() => closeWindow(win.id)}
+                aria-label="Close"
+              >
+                <div className={styles.xIcon} />
+              </button>
+            </div>
           ))}
         </div>
 

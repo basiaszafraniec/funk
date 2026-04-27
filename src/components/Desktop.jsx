@@ -152,7 +152,7 @@ export default function Desktop() {
             onPointerDown={(e) => onStickerPointerDown(s.id, e)}
           >
             <img src={s.dataUrl} alt="sticker" draggable={false} style={{ imageRendering: 'pixelated', display: 'block', width: 80 }} />
-            <button className={styles.stickerClose} onPointerDown={(e) => e.stopPropagation()} onClick={() => removeSticker(s.id)}>×</button>
+            <button className={styles.stickerClose} onPointerDown={(e) => e.stopPropagation()} onClick={() => removeSticker(s.id)} aria-label="Remove"><div className={styles.xIcon} /></button>
           </div>
         )
       })}

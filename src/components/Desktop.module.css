@@ -117,22 +117,27 @@
 
 .stickerClose {
   position: absolute;
-  top: -8px; right: -8px;
-  width: 16px; height: 16px;
+  top: -9px; right: -9px;
+  width: 18px; height: 18px;
   border-radius: 50%;
   background: var(--purple);
-  color: var(--cream);
-  font-size: 11px;
   border: var(--border);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-mono);
-  line-height: 1;
 }
 
 .stickerClose:hover { background: #e53535; }
+
+.stickerClose .xIcon {
+  width: 10px;
+  height: 10px;
+  background-image:
+    linear-gradient(45deg,  transparent 45%, var(--cream) 45%, var(--cream) 55%, transparent 55%),
+    linear-gradient(-45deg, transparent 45%, var(--cream) 45%, var(--cream) 55%, transparent 55%);
+  flex-shrink: 0;
+}
 
 /* ── cat ── */
 .cat {
