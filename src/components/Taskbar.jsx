@@ -52,7 +52,6 @@ export default function Taskbar() {
           onClick={() => setMenuOpen(m => !m)}
         >
           <span className={styles.startIcon}>⊞</span>
-          start
         </button>
 
         <div className={styles.sep} />

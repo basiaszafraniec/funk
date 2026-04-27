@@ -30,13 +30,13 @@ export default function StartMenu({ onClose }) {
   return (
     <div ref={ref} className={styles.menu}>
       {/* header strip */}
-      <div className={styles.header}>
+      <button className={styles.header} onClick={() => open('about')}>
         <div className={styles.avatar}>B</div>
         <div>
           <p className={styles.headerName}>Basia Szafraniec</p>
           <p className={styles.headerRole}>developer & designer</p>
         </div>
-      </div>
+      </button>
 
       {/* programs list */}
       <div className={styles.body}>
@@ -72,11 +72,20 @@ export default function StartMenu({ onClose }) {
         >
           <span>✉</span> Email
         </a>
+        <a
+          href="https://www.linkedin.com/in/basia-szafraniec"
+          target="_blank"
+          rel="noreferrer"
+          className={styles.footerItem}
+          onClick={onClose}
+        >
+          <span>in</span> LinkedIn
+        </a>
         <button
           className={`${styles.footerItem} ${styles.shutdown}`}
           onClick={() => { sessionStorage.removeItem('visited'); location.reload() }}
         >
-          <span>⏻</span> Turn Off Computer
+          <span>⏻</span> Log Out
         </button>
       </div>
     </div>

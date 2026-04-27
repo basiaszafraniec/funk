@@ -22,7 +22,12 @@
   padding: 10px 12px;
   background: var(--purple);
   border-bottom: var(--border);
+  width: 100%;
+  cursor: pointer;
+  transition: background 0.08s;
 }
+
+.header:hover { background: color-mix(in srgb, var(--purple) 80%, var(--pink)); }
 
 .avatar {
   width: 36px;
