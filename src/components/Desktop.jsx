@@ -134,7 +134,7 @@ export default function Desktop() {
       })}
 
       {/* sticky note */}
-      <div className={styles.sticky} draggable={false}>
+      <div className={styles.sticky} draggable={false} onDragStart={e => e.preventDefault()}>
         <span className={styles.tape} />
         <div className={styles.stickyLinks}>
           <a href="mailto:basia.szafraniec@gmail.com" className={styles.stickyLink}>✉ email</a>
