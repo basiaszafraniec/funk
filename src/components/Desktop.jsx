@@ -51,7 +51,7 @@ const WINDOW_SIZES = {
   projects:  { width: 660, height: 380 },
   audio:     { width: 320 },
   doodle:    { width: 460 },
-  documents: { width: 420 },
+  documents: { width: 580, height: 360 },
   project:   { width: 500 },
 }
 
