@@ -157,9 +157,9 @@ export default function Desktop() {
         <span className={styles.tape} />
         <p className={styles.stickyTitle}>say hi! ✦</p>
         <div className={styles.stickyLinks}>
-          <a href="mailto:basia.szafraniec@gmail.com" className={styles.stickyLink}><span>✉</span> email</a>
           <a href="https://github.com/basiaszafraniec" target="_blank" rel="noreferrer" className={styles.stickyLink}><span>⌂</span> github</a>
-          <a href="https://www.linkedin.com/in/basia-szafraniec" target="_blank" rel="noreferrer" className={styles.stickyLink}><span>◈</span> linkedin</a>
+          <a href="mailto:basia.szafraniec@gmail.com" className={styles.stickyLink}><span>✉</span> email</a>
+          <a href="https://www.linkedin.com/in/basia-szafraniec" target="_blank" rel="noreferrer" className={styles.stickyLink}><span className={styles.linkedinBadge}>in</span> linkedin</a>
         </div>
       </div>
 

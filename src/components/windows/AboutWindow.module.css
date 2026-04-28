@@ -129,6 +129,50 @@
   color: var(--purple);
 }
 
+.avSocial {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 2px;
+  border-top: var(--border);
+}
+
+.avSocialLink {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 6px;
+  font-family: var(--font-pixel);
+  font-size: 5px;
+  color: var(--purple);
+  text-decoration: none;
+  transition: background 0.08s;
+}
+
+.avSocialLink:hover { background: var(--pink); }
+
+.avSocialLink span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  width: 14px;
+  flex-shrink: 0;
+}
+
+.linkedinBadge {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 12px !important;
+  height: 10px !important;
+  background: var(--purple);
+  color: var(--cream);
+  font-family: var(--font-pixel);
+  font-size: 6px !important;
+  flex-shrink: 0;
+}
+
 /* ── bio ── */
 .bioText {
   font-family: var(--font-mono);

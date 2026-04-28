@@ -129,6 +129,19 @@
   transform: translateX(2px);
 }
 
+.linkedinBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 12px;
+  background: var(--purple);
+  color: var(--cream);
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  flex-shrink: 0;
+}
+
 /* ── user stickers ── */
 .sticker {
   position: fixed;

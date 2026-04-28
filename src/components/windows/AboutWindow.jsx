@@ -56,6 +56,11 @@ export default function AboutWindow() {
               </div>
               <p className={styles.avName}>basia<br/>szafraniec</p>
               <span className={styles.avTag}>dev & designer</span>
+              <div className={styles.avSocial}>
+                <a href="https://github.com/basiaszafraniec" target="_blank" rel="noreferrer" className={styles.avSocialLink}><span>⌂</span>github</a>
+                <a href="mailto:basia.szafraniec@gmail.com" className={styles.avSocialLink}><span>✉</span>email</a>
+                <a href="https://www.linkedin.com/in/basia-szafraniec" target="_blank" rel="noreferrer" className={styles.avSocialLink}><span className={styles.linkedinBadge}>in</span>linkedin</a>
+              </div>
             </div>
           </div>
 
