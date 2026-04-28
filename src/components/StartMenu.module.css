@@ -83,7 +83,16 @@
 .item:hover { background: var(--pink); }
 .item:hover .itemLabel { color: var(--purple); }
 
-.itemIcon { font-size: 18px; width: 24px; text-align: center; image-rendering: auto; flex-shrink: 0; }
+.itemIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  image-rendering: auto;
+}
 
 .itemText { display: flex; flex-direction: column; gap: 1px; }
 
@@ -123,7 +132,31 @@
   transition: background 0.08s;
 }
 
-.footerItem span { font-size: 14px; width: 20px; text-align: center; image-rendering: auto; }
+.footerItem span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  image-rendering: auto;
+}
+
+.linkedinIcon {
+  display: inline-flex !important;
+  justify-content: center;
+  align-items: center;
+  width: 16px !important;
+  height: 14px !important;
+  background: var(--purple);
+  color: var(--cream);
+  font-family: var(--font-pixel);
+  font-size: 7px !important;
+  border: 1.5px solid var(--purple);
+  flex-shrink: 0;
+}
+
 .footerItem:hover { background: var(--blue); }
 
 .shutdown { color: #800; }

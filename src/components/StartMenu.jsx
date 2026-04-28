@@ -79,7 +79,7 @@ export default function StartMenu({ onClose }) {
           className={styles.footerItem}
           onClick={onClose}
         >
-          <span>in</span> LinkedIn
+          <span className={styles.linkedinIcon}>in</span> LinkedIn
         </a>
         <button
           className={`${styles.footerItem} ${styles.shutdown}`}
