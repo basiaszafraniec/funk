@@ -6,7 +6,7 @@ const THEMES = [
   { id: 'sakura',    name: 'Sakura',       dots: ['#5c1a3a', '#ff8fab', '#ffc8da'] },
   { id: 'forest',    name: 'Forest Sprite',dots: ['#1b4332', '#74d89e', '#b8dfc0'] },
   { id: 'midnight',  name: 'Midnight',     dots: ['#b095f0', '#ff6ec7', '#0d0820'] },
-  { id: 'winxp',     name: 'Windows XP',   dots: ['#003171', '#6b9ee8', '#ece9d8'] },
+  { id: 'winxp',     name: 'Windows XP',   dots: ['#003171', '#3d7dd8', '#6aaa50'] },
   { id: 'tangerine', name: 'Tangerine',    dots: ['#7a3500', '#ffb800', '#ffcf7a'] },
 ]
 
