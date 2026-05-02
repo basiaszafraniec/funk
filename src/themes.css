@@ -55,7 +55,20 @@
   --bg:           #0d0820;
 }
 
-/* ── 5. Tangerine ── */
+/* ── 5. Windows XP ── */
+[data-theme="winxp"] {
+  --purple:       #003171;   /* XP deep navy */
+  --purple-dark:  #001a40;
+  --cream:        #ece9d8;   /* classic XP window beige */
+  --cream-dark:   #d4d0c8;
+  --pink:         #6b9ee8;   /* XP cornflower blue */
+  --blue:         #b8d4f8;   /* XP light blue hover */
+  --yellow:       #fffac0;
+  --light-purple: #d4e6fa;
+  --bg:           #3a6ea5;   /* XP default desktop blue */
+}
+
+/* ── 6. Tangerine ── */
 [data-theme="tangerine"] {
   --purple:       #7a3500;
   --purple-dark:  #4a2000;
