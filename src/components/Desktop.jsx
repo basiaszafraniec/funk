@@ -4,6 +4,7 @@ import { useGridDrag } from '../hooks/useGridDrag'
 import DesktopIcon from './DesktopIcon'
 import Window from './Window'
 import Taskbar from './Taskbar'
+import ThemeSwitcher from './ThemeSwitcher'
 import SkyCanvas from './SkyCanvas'
 import PixelDoodles from './PixelDoodles'
 import AboutWindow from './windows/AboutWindow'
@@ -181,6 +182,7 @@ export default function Desktop() {
         className={`${styles.cat} ${catBounce ? styles.catBounce : ''}`}
         onClick={handleCatClick} title="click me!" />
 
+      <ThemeSwitcher />
       <Taskbar />
 
       {windows.map((win) => {

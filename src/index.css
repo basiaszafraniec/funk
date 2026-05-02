@@ -16,12 +16,13 @@ input, textarea, [contenteditable] { cursor: text; }
   --pink:        #f891e9;
   --blue:        #a5e0ff;
   --yellow:      #fff6a3;
-  --light-purple: #ede0ff;
+  --light-purple:#ede0ff;
+  --bg:          #a5e0ff;
 
-  --border:      1px solid #430396;
+  --border:      1px solid var(--purple);
   --radius:      15px;
-  --shadow:      #430396 10px 10px;
-  --shadow-sm:   #430396 3px 3px;
+  --shadow:      var(--purple) 10px 10px;
+  --shadow-sm:   var(--purple) 3px 3px;
 
   --font-pixel:  'Press Start 2P', monospace;
   --font-mono:   'Space Mono', monospace;
@@ -38,7 +39,7 @@ html, body, #root {
 body {
   font-family: var(--font-mono);
   color: var(--purple);
-  background-color: rgb(165, 224, 255);
+  background-color: var(--bg);
   background-image:
     linear-gradient(to right,  var(--purple) 1px, transparent 1px),
     linear-gradient(to bottom, var(--purple) 1px, transparent 1px);

@@ -79,9 +79,9 @@ export default function SkyCanvas() {
       b.active = true
     }
 
-    function drawBird(b) {
+    function drawBird(b, color) {
       const wing = Math.sin(b.flap * 0.35) * 2
-      ctx.fillStyle = '#430396'
+      ctx.fillStyle = color
       ctx.fillRect(b.x - 6, b.py + wing, 3, 2)
       ctx.fillRect(b.x - 3, b.py + wing * 0.5, 3, 2)
       ctx.fillRect(b.x, b.py, 2, 2)
@@ -91,6 +91,7 @@ export default function SkyCanvas() {
 
     function tick() {
       ctx.clearRect(0, 0, cv.width, cv.height)
+      const birdColor = getComputedStyle(document.documentElement).getPropertyValue('--purple').trim() || '#430396'
 
       clouds.forEach(c => {
         c.px += c.speed
@@ -104,7 +105,7 @@ export default function SkyCanvas() {
         b.x += b.speed
         b.flap += b.flapDir
         if (Math.abs(b.flap) > 8) b.flapDir *= -1
-        drawBird(b)
+        drawBird(b, birdColor)
         if (b.x > cv.width + 30) {
           b.active = false
           setTimeout(() => activateBird(b), 30000 + Math.random() * 60000)

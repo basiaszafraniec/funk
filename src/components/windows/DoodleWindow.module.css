@@ -62,7 +62,7 @@
   height: auto;
   aspect-ratio: 1;
   /* grid is CSS-only so toDataURL() captures clean pixels */
-  background-color: #fffcee;
+  background-color: var(--cream);
   background-image:
     linear-gradient(to right,  rgba(67,3,150,0.1) 0.5px, transparent 0.5px),
     linear-gradient(to bottom, rgba(67,3,150,0.1) 0.5px, transparent 0.5px);

@@ -1,0 +1,69 @@
+/* ── THEMES ────────────────────────────────────────────────────
+   Applied via [data-theme] on <html>.
+   Each palette remaps the same set of design tokens.
+   ──────────────────────────────────────────────────────────── */
+
+/* ── 1. Violet Dream (default) ── */
+[data-theme="violet"] {
+  --purple:       #430396;
+  --purple-dark:  #2a0160;
+  --cream:        #fffcee;
+  --cream-dark:   #f0ebd8;
+  --pink:         #f891e9;
+  --blue:         #a5e0ff;
+  --yellow:       #fff6a3;
+  --light-purple: #ede0ff;
+  --bg:           #a5e0ff;
+}
+
+/* ── 2. Sakura ── */
+[data-theme="sakura"] {
+  --purple:       #5c1a3a;
+  --purple-dark:  #3d0e25;
+  --cream:        #fff5f7;
+  --cream-dark:   #fde6ec;
+  --pink:         #ff8fab;
+  --blue:         #ffd6e7;
+  --yellow:       #fff8e8;
+  --light-purple: #ffecf3;
+  --bg:           #ffc8da;
+}
+
+/* ── 3. Forest Sprite ── */
+[data-theme="forest"] {
+  --purple:       #1b4332;
+  --purple-dark:  #0d2b1a;
+  --cream:        #f2faf4;
+  --cream-dark:   #dff0e4;
+  --pink:         #74d89e;
+  --blue:         #c2e8c8;
+  --yellow:       #fdfbcc;
+  --light-purple: #e4f5e8;
+  --bg:           #b8dfc0;
+}
+
+/* ── 4. Midnight ── */
+[data-theme="midnight"] {
+  --purple:       #b095f0;
+  --purple-dark:  #d4c5ff;
+  --cream:        #1a1030;
+  --cream-dark:   #261a47;
+  --pink:         #ff6ec7;
+  --blue:         #3a2870;
+  --yellow:       #2a1a50;
+  --light-purple: #1f1545;
+  --bg:           #0d0820;
+}
+
+/* ── 5. Tangerine ── */
+[data-theme="tangerine"] {
+  --purple:       #7a3500;
+  --purple-dark:  #4a2000;
+  --cream:        #fffdf5;
+  --cream-dark:   #fff0d8;
+  --pink:         #ffb800;
+  --blue:         #ffdda0;
+  --yellow:       #fff5cc;
+  --light-purple: #fff8e0;
+  --bg:           #ffcf7a;
+}
