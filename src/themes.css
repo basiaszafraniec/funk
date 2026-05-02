@@ -60,12 +60,14 @@
   --purple:       #003171;   /* XP deep navy */
   --purple-dark:  #001a40;
   --cream:        #ece9d8;   /* classic XP window beige */
-  --cream-dark:   #d4d0c8;
+  --cream-dark:   #2a6bc0;   /* XP blue for taskbar window items */
   --pink:         #3d7dd8;   /* XP titlebar blue */
   --blue:         #a8c8f0;   /* XP light blue hover */
   --yellow:       #fffac0;
   --light-purple: #d4e6fa;
   --bg:           #6aaa50;   /* Bliss green hills */
+  --header-bg:    #1e5aab;   /* XP taskbar/ticker dark blue */
+  --header-color: #e8f4ff;   /* near-white text on dark blue bars */
 }
 
 /* ── 6. Tangerine ── */

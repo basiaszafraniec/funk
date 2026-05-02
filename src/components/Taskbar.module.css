@@ -2,7 +2,7 @@
   position: fixed;
   bottom: 0; left: 0; right: 0;
   height: 28px;
-  background: var(--cream);
+  background: var(--header-bg);
   border-top: var(--border);
   display: flex;
   align-items: center;
@@ -16,7 +16,7 @@
   font-size: 6px;
   padding: 3px 8px;
   background: var(--pink);
-  color: var(--purple);
+  color: var(--header-color);
   border: var(--border);
   box-shadow: var(--shadow-sm);
   cursor: pointer;
@@ -32,7 +32,7 @@
 .sep {
   width: 1px;
   height: 18px;
-  background: var(--purple);
+  background: var(--header-color);
   opacity: 0.2;
   flex-shrink: 0;
 }
@@ -69,7 +69,7 @@
   font-size: 6px;
   padding: 3px 8px;
   background: transparent;
-  color: var(--purple);
+  color: var(--header-color);
   border: none;
   cursor: pointer;
   white-space: nowrap;
@@ -120,7 +120,7 @@
 
 .exitBtn {
   font-size: 13px;
-  color: var(--purple);
+  color: var(--header-color);
   opacity: 0.6;
   cursor: pointer;
   transition: opacity 0.1s;
@@ -131,6 +131,6 @@
 .clock {
   font-family: var(--font-pixel);
   font-size: 6px;
-  color: var(--purple);
+  color: var(--header-color);
   white-space: nowrap;
 }

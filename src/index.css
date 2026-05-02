@@ -19,6 +19,9 @@ input, textarea, [contenteditable] { cursor: text; }
   --light-purple:#ede0ff;
   --bg:          #a5e0ff;
 
+  --header-bg:    var(--cream);
+  --header-color: var(--purple);
+
   --border:      1px solid var(--purple);
   --radius:      15px;
   --shadow:      var(--purple) 10px 10px;

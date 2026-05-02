@@ -10,7 +10,7 @@
   position: fixed;
   top: 0; left: 0; right: 0;
   height: 20px;
-  background-color: var(--cream);
+  background-color: var(--header-bg);
   border-bottom: var(--border);
   overflow: hidden;
   white-space: nowrap;
@@ -30,7 +30,7 @@
   font-family: var(--font-pixel);
   font-size: 6px;
   padding: 0 2.5rem;
-  color: var(--purple);
+  color: var(--header-color);
 }
 
 @keyframes tickerScroll {
